@@ -565,7 +565,7 @@ footer {
 
 <!-- HERO (kettlebell video) -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline
+  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline
          src="hero.mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -687,7 +687,7 @@ footer {
 
     <!-- Inline video: lunge workout -->
     <div class="video-showcase reveal">
-      <video autoplay muted loop playsinline
+      <video autoplay muted loop playsinline webkit-playsinline
              src="lunges.mp4"
              style="width:100%;max-height:480px;object-fit:cover;display:block;">
       </video>
@@ -894,6 +894,16 @@ footer {
 <script>
 // Lucide icons
 lucide.createIcons();
+
+// Mobile video autoplay
+const videos = document.querySelectorAll('video');
+const tryPlay = v => v.play().catch(() => {});
+videos.forEach(v => tryPlay(v));
+const vidObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) tryPlay(e.target); else e.target.pause(); });
+}, { threshold: 0.2 });
+videos.forEach(v => vidObs.observe(v));
+document.addEventListener('touchstart', () => videos.forEach(v => tryPlay(v)), { once: true });
 
 // Scroll reveal
 const observer = new IntersectionObserver(

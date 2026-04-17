@@ -463,7 +463,7 @@ footer { background:#060606; padding:52px 5% 32px; }
 
 <!-- HERO -->
 <section class="hero">
-  <video autoplay muted loop playsinline src="hero.mp4"></video>
+  <video autoplay muted loop playsinline webkit-playsinline src="hero.mp4"></video>
   <div class="hero-gradient"></div>
   <div class="hero-content">
     <span class="hero-kicker">Vitality Lab · The Vital Human Method</span>
@@ -598,7 +598,7 @@ footer { background:#060606; padding:52px 5% 32px; }
       </div>
       <div class="prog-aside reveal d2">
         <div class="prog-video-wrap">
-          <video autoplay muted loop playsinline src="cossack.mp4"></video>
+          <video autoplay muted loop playsinline webkit-playsinline src="cossack.mp4"></video>
           <div class="prog-video-caption">קוסאק סקוואטס · מוביליטי פונקציונלי</div>
         </div>
       </div>
@@ -708,14 +708,14 @@ footer { background:#060606; padding:52px 5% 32px; }
     <h2 class="reveal">תראי אותו עובד.</h2>
     <div class="reel-grid">
       <div class="reel-item reveal">
-        <video autoplay muted loop playsinline src="lunges.mp4"></video>
+        <video autoplay muted loop playsinline webkit-playsinline src="lunges.mp4"></video>
         <div class="reel-caption">
           <strong>לאנג' צעידה עם דאמבלים</strong>
           <span>תרגיל פונקציונלי · עובד על כל הרגל</span>
         </div>
       </div>
       <div class="reel-item reveal d1">
-        <video autoplay muted loop playsinline src="gym.mp4"></video>
+        <video autoplay muted loop playsinline webkit-playsinline src="gym.mp4"></video>
         <div class="reel-caption">
           <strong>כוח פונקציונלי</strong>
           <span>חדר כושר מאובזר · אנרגיה שאין דומה לה</span>
@@ -892,6 +892,19 @@ const obs = new IntersectionObserver(
   { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
 );
 document.querySelectorAll('.reveal, .reveal-left').forEach(el => obs.observe(el));
+
+// Mobile video autoplay
+const videos = document.querySelectorAll('video');
+const tryPlay = v => v.play().catch(() => {});
+// Play hero video immediately
+videos.forEach(v => tryPlay(v));
+// Re-trigger for below-fold videos when they enter viewport
+const vidObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) tryPlay(e.target); else e.target.pause(); });
+}, { threshold: 0.2 });
+videos.forEach(v => vidObs.observe(v));
+// iOS fallback: first touch unlocks audio context and allows autoplay
+document.addEventListener('touchstart', () => videos.forEach(v => tryPlay(v)), { once: true });
 </script>
 </body>
 </html>
