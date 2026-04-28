@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vitality Lab — חבילות אימון אישי · יניב</title>
-<meta name="description" content="3 חבילות אימון אישי עם יניב: חדר כושר, אירובי, או ליד הבית. מבוסס מדע longevity, מותאם לגוף ולחיים שלך.">
+<title>Vitality Lab — אימון אישי עם יניב · תל אביב</title>
+<meta name="description" content="3 מסלולי אימון אישי: חדר כושר מ-0, כוח+אירובי+קור, או שטח ופארק. מבוסס מדע longevity. תל אביב.">
+<meta property="og:title" content="Vitality Lab — אימון אישי עם יניב">
+<meta property="og:description" content="3 מסלולי אימון: חדר כושר, כוח ואירובי, או שטח. מבוסס מדע longevity. שיחת היכרות ללא מחויבות.">
+<meta property="og:image" content="https://netacello.github.io/vitality-lab/logo_cropped.png">
+<meta property="og:url" content="https://netacello.github.io/vitality-lab/landing.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vitality Lab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://netacello.github.io/vitality-lab/logo_cropped.png">
+<meta name="theme-color" content="#0E1216">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
@@ -502,15 +511,33 @@ footer{
   .foot{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media (max-width:640px){
-  section,.disciplines,.elements{padding:80px 24px}
+  section,.disciplines,.elements,.final{padding:80px 24px}
   .hero-content{padding:0 24px 48px}
   nav{padding:0 20px}
   .nav-meta{display:none}
   .hero-band{grid-template-columns:1fr}
+  /* package rows: collapse to single column so pkg-list isn't squeezed into 80px */
+  .pkg{grid-template-columns:1fr;gap:20px}
+  .pkg-meta{flex-direction:column;gap:14px}
+  .pkg-tagline{max-width:none}
   .disc-grid,.el-grid{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
   .foot-bot{flex-direction:column;gap:8px;align-items:flex-start}
   .hero-actions{flex-direction:column;align-items:flex-start}
+  /* video showcase: shorter on mobile */
+  .video-showcase video{max-height:260px}
+  /* about photos: single column on narrow screens */
+  .about-photos{grid-template-columns:1fr}
+  .photo-tall{aspect-ratio:4/3;grid-row:auto}
+}
+@media (max-width:480px){
+  /* hide Instagram handle on tiny screens to prevent nav overflow */
+  .nav-ig{display:none}
+  .nav-cta{padding:8px 14px;font-size:.66rem;letter-spacing:.1em}
+  /* smaller section padding */
+  section,.disciplines,.elements,.final{padding:64px 20px}
+  .hero-content{padding:0 20px 40px}
+  nav{padding:0 16px}
 }
 </style>
 </head>
@@ -668,15 +695,15 @@ footer{
       <article class="pkg rv">
         <div class="pkg-num">PACKAGE / 01<small>STRENGTH</small></div>
         <div>
-          <h2 class="pkg-title">מ-0 לחדר כושר —<br><em>עצמאי לגמרי.</em></h2>
-          <p class="pkg-tagline">~10 מפגשים שלוקחים אותך מאפס לעצמאות מלאה בחדר כושר. מתחילים אצלך בבית, ממשיכים בחדר כושר — ויוצאים בלי תלות במאמן.</p>
+          <h2 class="pkg-title">כוח זה longevity —<br><em>מתחילים נכון.</em></h2>
+          <p class="pkg-tagline">המחקר ברור: אימוני כוח הם אחד הדברים הכי חשובים לאריכות חיים. אם עדיין לא מתאמן/ת בצורה מסודרת בחדר כושר — זה בדיוק בשבילך. ~10 מפגשים, מ-0 לעצמאות מלאה.</p>
         </div>
         <ul class="pkg-list">
+          <li>מיועד למי שמתחיל/ה מ-0 — ניסיון קודם לא נדרש</li>
           <li>אימון ראשון אצלך בבית, ללא ציוד</li>
           <li>מעבר הדרגתי לחדר כושר (זינת׳ ברבל, ת״א)</li>
           <li>לימוד כל התרגילים הבסיסיים — נכון, בטוח, עצמאי</li>
-          <li>בניית שריר, כוח וצפיפות עצם</li>
-          <li>תיקון מנחים + תרגילים מספורטתרפיה</li>
+          <li>בניית שריר, כוח וצפיפות עצם לטווח ארוך</li>
         </ul>
         <div class="pkg-meta">
           <div class="pkg-meta-row"><span class="k">Location</span><span class="v">בית · ואז זינת׳ ברבל, ת״א</span></div>
