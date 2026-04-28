@@ -3,545 +3,507 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vitality Lab – תכנית ה-10 | יניב</title>
-<meta name="description" content="10 אימונים אישיים שיהפכו אותך לעצמאית בחדר כושר לנצח. מגיע אלייך הביתה. מבוסס מדע longevity.">
-<link rel="icon" type="image/png" href="logo_cropped.png">
-<!-- Open Graph / social preview -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://netacello.github.io/vitality-lab/landing.html">
-<meta property="og:title" content="תכנית ה-10 | Vitality Lab – יניב">
-<meta property="og:description" content="10 אימונים אישיים שיהפכו אותך לעצמאית בחדר כושר לנצח. מגיע אלייך הביתה. מבוסס מדע longevity.">
-<meta property="og:image" content="https://netacello.github.io/vitality-lab/yaniv-snow.jpeg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://netacello.github.io/vitality-lab/yaniv-snow.jpeg">
+<title>Vitality Lab — חבילות אימון אישי · יניב</title>
+<meta name="description" content="3 חבילות אימון אישי עם יניב: חדר כושר, אירובי, או ליד הבית. מבוסס מדע longevity, מותאם לגוף ולחיים שלך.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&display=swap" rel="stylesheet">
 <style>
-/* ── Reset & Tokens ─────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --ink:       #0A0A0A;
-  --ink-2:     #1A1A1A;
-  --ink-3:     #2A2A2A;
-  --gold:      #C4973E;
-  --gold-lt:   rgba(196,151,62,.12);
-  --cream:     #F7F4EE;
-  --cream-2:   #EDEAE2;
-  --muted:     #7A7A6E;
-  --muted-dk:  #666660;
-  --border-dk: rgba(255,255,255,.08);
-  --border-lt: rgba(0,0,0,.08);
-  --r:         12px;
-  --ease-spring: cubic-bezier(0.16,1,0.3,1);
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --basalt:   #0E1216;
+  --basalt-2: #161B20;
+  --basalt-3: #1E242A;
+  --bone:     #EDEAE3;
+  --bone-2:   #E2DED4;
+  --bone-3:   #D6D2C6;
+  --ash:      #8A8B83;
+  --ash-2:    #5C5D55;
+  --ember:    #C25A2A;
+  --ember-2:  #D87148;
+  --hair:     rgba(14,18,22,.10);
+  --hair-d:   rgba(237,234,227,.10);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans:  'Heebo', ui-sans-serif, system-ui, sans-serif;
+  --mono:  'JetBrains Mono', ui-monospace, monospace;
+  --ease:  cubic-bezier(.16,1,.3,1);
 }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Heebo', sans-serif;
-  background: var(--cream);
-  color: var(--ink);
-  direction: rtl;
-  line-height: 1.7;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── Scroll animation ───────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity .8s var(--ease-spring), transform .8s var(--ease-spring);
-}
-.reveal.in { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: .08s; }
-.reveal-d2 { transition-delay: .18s; }
-.reveal-d3 { transition-delay: .28s; }
-.reveal-d4 { transition-delay: .38s; }
-
-/* ── NAV ────────────────────────────────────────── */
-nav {
-  position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 100;
-  height: 60px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5%;
-  background: rgba(10,10,10,.92);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border-dk);
-}
-.nav-logo img {
-  height: 34px;
-  filter: invert(1) brightness(1.8);
-  display: block;
-}
-.nav-right { display: flex; align-items: center; gap: 20px; }
-.nav-ig {
-  color: #aaa; font-size: .8rem; text-decoration: none;
-  display: flex; align-items: center; gap: 6px;
-  transition: color .2s;
-}
-.nav-ig:hover { color: var(--gold); }
-.nav-ig svg { width:16px; height:16px; fill:currentColor; }
-.nav-cta {
-  background: var(--gold); color: var(--ink);
-  padding: 8px 20px; border-radius: 6px;
-  font-weight: 700; font-size: .82rem;
-  text-decoration: none; white-space: nowrap;
-  transition: opacity .2s, transform .2s;
-}
-.nav-cta:hover { opacity: .88; transform: translateY(-1px); }
-
-/* ── HERO ───────────────────────────────────────── */
-.hero {
-  position: relative;
-  height: 100vh; min-height: 600px;
-  display: flex; align-items: flex-end;
-  overflow: hidden;
-}
-.hero-video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: brightness(.45);
-}
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(10,10,10,.88) 0%,
-    rgba(10,10,10,.3) 45%,
-    transparent 100%
-  );
-}
-.hero-content {
-  position: relative; z-index: 2;
-  padding: 115px 6% 8%;
-  max-width: 820px;
-}
-.hero-tag {
-  display: inline-block;
-  border: 1px solid rgba(196,151,62,.5);
-  color: var(--gold);
-  font-size: .72rem; font-weight: 600;
-  letter-spacing: 3px; text-transform: uppercase;
-  padding: 6px 16px; border-radius: 30px;
-  margin-bottom: 24px;
-}
-.hero h1 {
-  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
-  font-weight: 900;
-  color: #fff;
-  line-height: 1.08;
-  margin-bottom: 20px;
-}
-.hero h1 em { color: var(--gold); font-style: normal; display: block; }
-.hero-sub {
-  font-size: clamp(.95rem, 2vw, 1.15rem);
-  color: rgba(255,255,255,.72);
-  max-width: 480px;
-  margin-bottom: 32px;
-  font-weight: 300;
-}
-.hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.btn-gold {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold); color: var(--ink);
-  font-size: 1rem; font-weight: 800;
-  padding: 15px 32px; border-radius: 8px;
-  text-decoration: none;
-  transition: transform .25s var(--ease-spring), box-shadow .25s;
-}
-.btn-gold:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(196,151,62,.45);
-}
-.hero-scroll {
-  color: rgba(255,255,255,.4); font-size: .78rem; letter-spacing: 2px;
-  display: flex; align-items: center; gap: 8px;
-}
-.hero-scroll::before {
-  content: '';
-  display: block; width: 1px; height: 40px;
-  background: rgba(255,255,255,.25);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%,100% { opacity:.25; transform: scaleY(1); }
-  50%      { opacity:.7;  transform: scaleY(1.2); }
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--bone);
+  color:var(--basalt);
+  direction:rtl;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 
-/* ── STATS BAND ─────────────────────────────────── */
-.stats-band {
-  background: var(--ink);
-  border-bottom: 1px solid var(--border-dk);
-  padding: 0 5%;
-  display: flex; justify-content: center;
+/* ── Reveal ── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.18s}.rv-d3{transition-delay:.28s}.rv-d4{transition-delay:.38s}
+
+/* ── NAV ── */
+nav{
+  position:fixed;inset-block-start:0;inset-inline:0;z-index:100;
+  height:64px;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(14,18,22,.88);
+  backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--hair-d);
 }
-.stats-inner {
-  display: flex; align-items: stretch;
-  max-width: 900px; width: 100%;
+.nav-logo img{height:32px;filter:invert(1) brightness(1.8);display:block}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-meta{font-family:var(--mono);font-size:.68rem;color:var(--ash);letter-spacing:.18em}
+.nav-ig{
+  color:var(--ash);font-size:.72rem;text-decoration:none;
+  font-family:var(--mono);letter-spacing:.12em;
+  display:flex;align-items:center;gap:5px;transition:color .2s;
 }
-.stat-item {
-  flex: 1;
-  padding: 28px 20px;
-  text-align: center;
-  border-inline-start: 1px solid var(--border-dk);
+.nav-ig svg{width:14px;height:14px;fill:currentColor}
+.nav-ig:hover{color:var(--ember)}
+.nav-cta{
+  background:var(--bone);color:var(--basalt);
+  padding:10px 18px;border-radius:2px;
+  font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.16em;
+  text-decoration:none;text-transform:uppercase;
+  transition:transform .25s var(--ease),background .25s,color .25s;
 }
-.stat-item:last-child { border-inline-end: 1px solid var(--border-dk); }
-.stat-num {
-  font-size: 2.2rem; font-weight: 900;
-  color: var(--gold); line-height: 1;
+.nav-cta:hover{background:var(--ember);color:var(--bone);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;height:100vh;min-height:680px;
+  background:var(--basalt);color:var(--bone);
+  overflow:hidden;
+  display:grid;
 }
-.stat-label {
-  font-size: .75rem; color: #666; margin-top: 5px;
-  letter-spacing: .5px;
+.hero-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.38) saturate(.85);
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(14,18,22,.45) 0%,rgba(14,18,22,.2) 40%,rgba(14,18,22,.88) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  align-self:end;
+  padding:0 48px 72px;
+  max-width:1200px;width:100%;
+  margin:0 auto;
+}
+.hero-tag{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:32px;color:var(--bone-2);
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 12px var(--ember);flex-shrink:0}
+.hero h1{
+  font-family:var(--sans);
+  font-size:clamp(2.4rem,6vw,5.4rem);
+  font-weight:300;
+  line-height:1.02;
+  letter-spacing:-.025em;
+  margin-bottom:28px;
+  max-width:14ch;
+}
+.hero h1 em{
+  font-family:var(--serif);
+  font-style:normal;font-weight:300;
+  color:var(--bone);display:inline;
+}
+.hero h1 .strong{font-weight:700}
+.hero-sub{
+  font-size:1.05rem;color:var(--bone-2);
+  max-width:46ch;line-height:1.7;font-weight:300;
+  margin-bottom:40px;
+}
+.hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-ember{
+  display:inline-flex;align-items:center;gap:14px;
+  background:var(--ember);color:var(--bone);
+  font-family:var(--mono);font-weight:600;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:18px 28px;border-radius:2px;
+  text-decoration:none;
+  transition:background .25s,transform .25s var(--ease);
+}
+.btn-ember:hover{background:var(--ember-2);transform:translateY(-2px)}
+.btn-ghost-d{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--bone-2);text-decoration:none;
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+  border-bottom:1px solid var(--hair-d);padding-bottom:6px;
+  transition:color .2s,border-color .2s;
+}
+.btn-ghost-d:hover{color:var(--ember);border-color:var(--ember)}
+
+/* Hero data band */
+.hero-band{
+  border-top:1px solid var(--hair-d);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:rgba(14,18,22,.65);backdrop-filter:blur(10px);
+}
+.hero-band .cell{
+  padding:22px 32px;
+  border-inline-start:1px solid var(--hair-d);
+}
+.hero-band .cell:first-child{border-inline-start:none}
+.hb-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--ash);text-transform:uppercase;margin-bottom:6px}
+.hb-val{font-family:var(--sans);font-size:.98rem;color:var(--bone);font-weight:300;letter-spacing:.04em;line-height:1.3}
+
+/* ── DISCIPLINES ── */
+.disciplines{
+  background:url('Gemini_Generated_Image_6wnoao6wnoao6wno.png') center/cover no-repeat var(--basalt);
+  color:var(--bone);
+  padding:80px 48px;border-top:1px solid var(--hair-d);
+  position:relative;
+}
+.disc-inner{max-width:1200px;margin:0 auto}
+.disc-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  color:var(--ash);margin-bottom:36px;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.disc-eyebrow::after{content:"";flex:1;height:1px;background:var(--hair-d);min-width:20px}
+.disc-eyebrow span{flex-shrink:0}
+.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair-d)}
+.disc{
+  background:transparent;padding:32px 28px;
+  display:flex;flex-direction:column;gap:14px;min-height:200px;
+  transition:background .3s;
+}
+.disc:hover{background:rgba(237,234,227,.07)}
+.disc-num{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--ember)}
+.disc-glyph{width:34px;height:34px;color:var(--bone)}
+.disc h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;letter-spacing:-.01em;line-height:1.15;color:var(--bone)}
+.disc p{font-size:.84rem;color:var(--ash);line-height:1.6}
+
+/* ── SECTION base ── */
+section{padding:128px 48px}
+.inner{max-width:1200px;margin:0 auto}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:24px;color:var(--ash-2);
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+}
+.eyebrow .bar{width:36px;height:1px;background:var(--ember);flex-shrink:0}
+h2{
+  font-family:var(--sans);font-weight:300;
+  font-size:clamp(2rem,4.6vw,3.6rem);
+  line-height:1.05;letter-spacing:-.025em;
+  max-width:18ch;
+}
+h2 em{font-family:var(--serif);font-style:normal;font-weight:300}
+h2 .strong{font-weight:700}
+.lead{font-size:1.02rem;color:var(--ash-2);max-width:54ch;margin-top:24px;line-height:1.75}
+
+/* ── PROBLEM ── */
+.problem{background:var(--bone)}
+.prob-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--hair);margin-top:64px;border-top:1px solid var(--hair);
+}
+.prob{
+  background:var(--bone);padding:40px 36px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.prob-idx{font-family:var(--mono);font-size:.66rem;color:var(--ember);letter-spacing:.22em}
+.prob h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;letter-spacing:-.01em;line-height:1.2}
+.prob p{font-size:.92rem;color:var(--ash-2);line-height:1.7}
+
+/* ── PACKAGES ── */
+.packages{background:url('morskie-oko.webp') center/cover no-repeat var(--basalt);color:var(--bone);position:relative}
+.packages .lead{color:var(--ash)}
+.pkg-stack{display:flex;flex-direction:column;margin-top:64px;border-top:1px solid var(--hair-d)}
+.pkg{
+  display:grid;grid-template-columns:120px 1fr 1fr 240px;
+  gap:48px;align-items:start;
+  padding:56px 0;
+  border-bottom:1px solid var(--hair-d);
+  transition:background .35s var(--ease);
+}
+.pkg:hover{background:rgba(255,255,255,.018)}
+.pkg-num{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.22em;color:var(--ember);
+  padding-top:6px;
+}
+.pkg-num small{display:block;color:var(--ash);font-size:.62rem;margin-top:8px;letter-spacing:.18em}
+.pkg-title{
+  font-family:var(--sans);font-weight:300;
+  font-size:clamp(1.5rem,2.6vw,2.2rem);
+  line-height:1.1;letter-spacing:-.02em;color:var(--bone);
+  max-width:none;
+}
+.pkg-title em{font-family:var(--serif);font-style:normal;font-weight:400}
+.pkg-tagline{margin-top:14px;font-size:.92rem;color:var(--ash);line-height:1.7;max-width:32ch}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:10px;padding-top:6px}
+.pkg-list li{
+  font-size:.86rem;color:var(--bone-2);line-height:1.55;
+  padding-inline-start:18px;position:relative;
+}
+.pkg-list li::before{
+  content:"";position:absolute;inset-inline-start:0;top:.7em;
+  width:8px;height:1px;background:var(--ember);
+}
+.pkg-meta{
+  display:flex;flex-direction:column;gap:14px;
+  border-inline-start:1px solid var(--hair-d);padding-inline-start:24px;
+}
+.pkg-meta-row{display:flex;flex-direction:column;gap:4px}
+.pkg-meta-row .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;color:var(--ash);text-transform:uppercase}
+.pkg-meta-row .v{font-size:.86rem;color:var(--bone-2);line-height:1.4}
+.pkg-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:8px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ember);text-decoration:none;
+  border-bottom:1px solid var(--ember);padding-bottom:6px;width:fit-content;
+  transition:color .2s,border-color .2s,letter-spacing .2s;
+}
+.pkg-cta:hover{color:var(--ember-2);border-color:var(--ember-2);letter-spacing:.2em}
+
+/* Video showcase (after packages) */
+.video-showcase{
+  margin-top:64px;
+  position:relative;overflow:hidden;
+  border-top:1px solid var(--hair-d);
+}
+.video-showcase video{width:100%;display:block;max-height:420px;object-fit:cover}
+.video-label{
+  position:absolute;inset-block-end:0;inset-inline:0;
+  padding:20px 32px;
+  background:linear-gradient(to top,rgba(14,18,22,.85),transparent);
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(237,234,227,.65);
 }
 
-/* ── SECTION SHARED ─────────────────────────────── */
-.section { padding: 96px 5%; }
-.section-inner { max-width: 1000px; margin: 0 auto; }
-.eyebrow {
-  font-size: .7rem; font-weight: 700;
-  letter-spacing: 4px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 14px; display: block;
+/* ── ABOUT ── */
+.about{background:url('nature-israel.jpeg') center/cover no-repeat var(--bone-2);position:relative}
+.about-grid{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:80px;align-items:start;margin-top:64px;
 }
-h2 {
-  font-size: clamp(1.9rem, 4vw, 2.8rem);
-  font-weight: 900; line-height: 1.15;
+.about-photos{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
 }
-.lead {
-  font-size: 1.05rem; color: var(--muted);
-  max-width: 580px; margin-top: 16px;
+.about-photos img{
+  width:100%;object-fit:cover;display:block;
+  transition:transform .5s var(--ease);
+}
+.about-photos img:hover{transform:scale(1.02)}
+.photo-tall{grid-row:span 2;aspect-ratio:2/3;object-position:top}
+.photo-sq{aspect-ratio:1}
+.about-text p{font-size:1rem;color:var(--basalt);line-height:1.85;margin-bottom:18px}
+.about-text p:first-of-type{
+  font-family:var(--serif);font-size:1.25rem;line-height:1.55;font-weight:300;
+  letter-spacing:-.01em;
+}
+.creds{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  margin-top:32px;background:var(--hair);border:1px solid var(--hair);
+}
+.cred{
+  background:rgba(226,222,212,.72);padding:16px 18px;
+  display:flex;flex-direction:column;gap:4px;
+}
+.cred .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--ash-2);text-transform:uppercase}
+.cred .v{font-size:.92rem;color:var(--basalt);font-weight:500}
+
+/* ── ELEMENTS ── */
+.elements{background:url('Gemini_Generated_Image_isyxmqisyxmqisyx.png') center top/cover no-repeat var(--basalt);color:var(--bone);padding:128px 48px;position:relative}
+.el-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  margin-top:64px;border-top:1px solid var(--hair-d);
+}
+.el{
+  border-bottom:1px solid var(--hair-d);
+  border-inline-start:1px solid var(--hair-d);
+  padding:36px 28px;display:flex;flex-direction:column;gap:18px;min-height:280px;
+  transition:background .35s;position:relative;
+}
+.el:first-child{border-inline-start:none}
+.el:hover{background:rgba(194,90,42,.04)}
+.el .num{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--ember)}
+.el h3{font-family:var(--serif);font-size:1.7rem;font-weight:400;letter-spacing:-.015em;line-height:1.1;color:var(--bone)}
+.el p{font-size:.86rem;color:var(--ash);line-height:1.7}
+.el .temp{
+  margin-top:auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;color:var(--bone-2);
+  display:flex;justify-content:space-between;border-top:1px dashed var(--hair-d);padding-top:14px;
 }
 
-/* ── Lucide icons ───────────────────────────────── */
-.icon-wrap {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  background: var(--gold-lt);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px;
-  transition: background .25s;
+/* ── INCLUDED ── */
+.included{background:url('bg-waterfall.webp') center/cover no-repeat var(--bone);position:relative}
+.inc-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--hair);margin-top:64px;border:1px solid var(--hair);
 }
-.icon-wrap svg { width: 20px; height: 20px; stroke: var(--gold); stroke-width: 1.75; }
-.prob-card:hover .icon-wrap { background: var(--gold); }
-.prob-card:hover .icon-wrap svg { stroke: var(--ink); }
+.inc{
+  background:rgba(237,234,227,.82);padding:36px 30px;
+  display:flex;flex-direction:column;gap:14px;min-height:220px;
+}
+.inc-num{font-family:var(--mono);font-size:.62rem;color:var(--ember);letter-spacing:.22em}
+.inc h3{font-family:var(--sans);font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.inc p{font-size:.86rem;color:var(--ash-2);line-height:1.65}
 
-.cred svg { width: 15px; height: 15px; stroke: var(--gold); stroke-width: 1.75; flex-shrink: 0; }
+/* ── TESTIMONY ── */
+.testimony{background:url('bg-lake.webp') center/cover no-repeat var(--bone-3);color:var(--basalt);padding:128px 48px;position:relative}
+.testimony .inner{max-width:840px}
+.test-eyebrow{display:flex;gap:14px;color:var(--ash-2);margin-bottom:36px;
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase}
+.test-eyebrow .bar{width:36px;height:1px;background:var(--ember);margin-block-start:9px;flex-shrink:0}
+.test-quote{
+  font-family:var(--serif);font-weight:300;font-style:normal;
+  font-size:clamp(1.4rem,3vw,2.1rem);
+  line-height:1.45;color:var(--basalt);letter-spacing:-.012em;
+}
+.test-quote .strong{font-weight:600;font-style:normal}
+.test-cite{
+  display:flex;flex-direction:column;gap:4px;margin-top:36px;
+  border-top:1px solid var(--hair);padding-top:24px;
+}
+.test-name{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;font-weight:600;text-transform:uppercase}
+.test-role{font-size:.86rem;color:var(--ash-2)}
 
-.inc-icon { width: 38px; height: 38px; border-radius: 8px; background: var(--gold-lt); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-.inc-icon svg { width: 18px; height: 18px; stroke: var(--gold); stroke-width: 1.75; }
+/* ── PRICING ── */
+.pricing{background:var(--bone)}
+.price-table{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1px;
+  background:var(--hair);margin-top:64px;border:1px solid var(--hair);
+}
+.price-cell{background:var(--bone);padding:24px 22px}
+.price-cell.head{background:var(--basalt);color:var(--bone)}
+.price-cell.head .ehd{font-family:var(--mono);font-size:.6rem;color:var(--ash);letter-spacing:.22em;margin-bottom:8px;text-transform:uppercase}
+.price-cell.head .et{font-family:var(--serif);font-style:italic;font-size:1.2rem;font-weight:400;line-height:1.4}
+.price-cell .pkn{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--ember);margin-bottom:10px;text-transform:uppercase}
+.price-cell .pkt{font-family:var(--sans);font-weight:600;font-size:.95rem;margin-bottom:14px;line-height:1.3}
+.price-cell .pkv{font-family:var(--serif);font-size:2.1rem;font-weight:400;letter-spacing:-.02em;line-height:1}
+.price-cell .pkv .cur{font-size:1rem;color:var(--ash-2)}
+.price-cell .pkv.contact{font-size:1.1rem;font-style:italic;color:var(--ash-2)}
+.price-cell .pkr{font-family:var(--mono);font-size:.62rem;color:var(--ash-2);letter-spacing:.16em;margin-top:6px;text-transform:uppercase}
+.price-cell ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:.84rem;color:var(--ash-2);line-height:1.5}
+.price-cell ul li{padding-inline-start:14px;position:relative}
+.price-cell ul li::before{content:"";position:absolute;inset-inline-start:0;top:.6em;width:6px;height:1px;background:var(--ember)}
+.price-cell .pkc{
+  display:inline-flex;align-items:center;gap:10px;margin-top:18px;
+  background:var(--basalt);color:var(--bone);
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  padding:14px 18px;border-radius:2px;text-decoration:none;
+  transition:background .2s;
+}
+.price-cell .pkc:hover{background:var(--ember)}
 
-/* ── PROBLEM ────────────────────────────────────── */
-.problem { background: var(--cream); }
-.prob-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 48px;
+/* ── FAQ ── */
+.faq{background:var(--bone-2)}
+.faq-list{margin-top:48px;max-width:880px}
+.faq-item{border-top:1px solid var(--hair)}
+.faq-item:last-child{border-bottom:1px solid var(--hair)}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  text-align:right;direction:rtl;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  padding:28px 0;
+  font-family:var(--sans);font-size:1.05rem;font-weight:500;color:var(--basalt);
+  transition:color .2s;
 }
-.prob-card {
-  background: #fff;
-  border: 1px solid var(--border-lt);
-  border-radius: var(--r);
-  padding: 28px 26px;
-  position: relative;
-  overflow: hidden;
-  transition: transform .3s var(--ease-spring), box-shadow .3s;
+.faq-q:hover{color:var(--ember)}
+.faq-q .idx{font-family:var(--mono);font-size:.7rem;color:var(--ember);letter-spacing:.18em;flex-shrink:0;width:36px}
+.faq-q .qt{flex:1;text-align:right}
+.faq-q .pm{
+  width:24px;height:24px;border:1px solid var(--basalt);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:var(--mono);font-size:.9rem;font-weight:400;
+  transition:transform .35s var(--ease),background .25s,color .25s;
 }
-.prob-card::before {
-  content: '';
-  position: absolute; inset-block-start: 0; inset-inline-start: 0;
-  width: 3px; height: 100%;
-  background: var(--gold);
-  transform: scaleY(0); transform-origin: bottom;
-  transition: transform .35s var(--ease-spring);
+.faq-item.open .pm{transform:rotate(45deg);background:var(--ember);border-color:var(--ember);color:var(--bone)}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s var(--ease),padding .35s;
+  font-size:.95rem;color:var(--ash-2);line-height:1.8;
+  padding:0 36px 0 0;
 }
-.prob-card:hover::before { transform: scaleY(1); }
-.prob-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08); }
-/* .prob-icon removed – replaced with .icon-wrap + Lucide */
-.prob-card h3 { font-size: .98rem; font-weight: 700; margin-bottom: 8px; }
-.prob-card p  { font-size: .86rem; color: var(--muted); line-height: 1.65; }
+.faq-item.open .faq-a{max-height:340px;padding-bottom:28px}
 
-/* ── PROGRAM ────────────────────────────────────── */
-.program { background: var(--ink); }
-.program h2 { color: #fff; }
-.program .lead { color: #888; }
-.steps {
-  margin-top: 56px;
-  counter-reset: step;
+/* ── FINAL CTA ── */
+.final{
+  background:url('bg-mountains.jpeg') center/cover no-repeat var(--basalt);
+  color:var(--bone);
+  padding:160px 48px;text-align:center;
+  position:relative;overflow:hidden;
 }
-.step {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 0 28px;
-  padding-bottom: 40px;
-  position: relative;
+.final::before{
+  content:"";position:absolute;inset:0;
+  background:rgba(14,18,22,.68);
+  pointer-events:none;
 }
-.step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  inset-inline-start: 27px;
-  inset-block-start: 56px;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-}
-.step-dot {
-  width: 54px; height: 54px;
-  border-radius: 50%;
-  background: var(--ink-2);
-  border: 2px solid var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  font-size: .85rem; font-weight: 800; color: var(--gold);
-  flex-shrink: 0; z-index: 1;
-}
-.step-body { padding-top: 12px; }
-.step-body h3 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-.step-body p  { color: #777; font-size: .88rem; line-height: 1.7; }
-
-/* ── INLINE VIDEO ───────────────────────────────── */
-.video-showcase {
-  background: var(--ink-2);
-  border: 1px solid var(--border-dk);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: 48px;
-  position: relative;
-}
-.video-showcase video {
-  width: 100%; display: block;
-  max-height: 480px; object-fit: cover;
-}
-.video-label {
-  position: absolute; inset-block-end: 0; inset-inline: 0;
-  padding: 20px 24px;
-  background: linear-gradient(to top, rgba(0,0,0,.85), transparent);
-  color: rgba(255,255,255,.7);
-  font-size: .82rem; letter-spacing: 1px;
+.final h2{margin:0 auto 28px;color:var(--bone);max-width:none}
+.final h2 em{color:var(--ember)}
+.final p{color:var(--ash);font-size:1rem;margin-bottom:48px;max-width:48ch;margin-inline:auto;position:relative}
+.final .meta{
+  margin-top:24px;font-family:var(--mono);font-size:.7rem;color:var(--ash-2);
+  letter-spacing:.18em;text-transform:uppercase;position:relative;
 }
 
-/* ── ABOUT ──────────────────────────────────────── */
-.about { background: var(--cream); }
-.about-grid {
-  display: grid;
-  grid-template-columns: 5fr 6fr;
-  gap: 72px;
-  align-items: center;
-  margin-top: 56px;
+/* ── FOOTER ── */
+footer{
+  background:#06090C;color:var(--ash);padding:56px 48px 36px;
+  border-top:1px solid var(--hair-d);
 }
-.about-photos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 12px;
+.foot{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.foot-logo img{height:26px;filter:invert(1) brightness(1.5) opacity(.65);margin-bottom:18px;display:block}
+.foot-brand p{font-size:.84rem;color:var(--ash);line-height:1.7;max-width:36ch}
+.foot-col h4{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;color:var(--bone-2);margin-bottom:18px;text-transform:uppercase}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col a{color:var(--ash);font-size:.86rem;text-decoration:none;transition:color .2s}
+.foot-col a:hover{color:var(--ember)}
+.foot-bot{
+  max-width:1200px;margin:48px auto 0;padding-top:24px;
+  border-top:1px solid var(--hair-d);
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--ash-2);
+  text-transform:uppercase;
 }
-.about-photos img {
-  width: 100%; border-radius: var(--r);
-  display: block;
-  object-fit: cover;
-  transition: transform .5s var(--ease-spring);
-}
-.about-photos img:hover { transform: scale(1.02); }
-.photo-tall { grid-row: span 2; aspect-ratio: 2/3; object-position: top; }
-.photo-sq   { aspect-ratio: 1; }
-.about-text h2 { margin-bottom: 20px; }
-.about-text p  { color: var(--muted); font-size: .95rem; margin-bottom: 14px; }
-.creds {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: 24px;
-}
-.cred {
-  display: flex; align-items: center; gap: 6px;
-  background: #fff;
-  border: 1px solid var(--border-lt);
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-size: .78rem; font-weight: 600;
-  transition: border-color .2s, background .2s;
-}
-.cred:hover { border-color: var(--gold); background: #fffdf7; }
 
-/* ── TESTIMONIAL ────────────────────────────────── */
-.testimonial {
-  background: var(--gold);
-  padding: 100px 5%;
+/* ── Section bg overlays ── */
+.disciplines::before,.elements::before,.about::before,.testimony::before,
+.packages::before,.included::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
 }
-.test-inner { max-width: 760px; margin: 0 auto; }
-.test-mark {
-  font-family: Georgia, serif;
-  font-size: 6rem;
-  line-height: .4;
-  color: rgba(0,0,0,.15);
-  margin-bottom: 24px;
-  display: block;
-}
-blockquote {
-  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-  font-weight: 600;
-  color: var(--ink);
-  line-height: 1.75;
-  margin-bottom: 28px;
-}
-.test-cite { display: flex; align-items: center; gap: 14px; }
-.test-avatar {
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  background: rgba(0,0,0,.15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; font-weight: 800; color: var(--ink);
-}
-.test-name  { font-weight: 800; font-size: .95rem; }
-.test-role  { font-size: .78rem; color: rgba(0,0,0,.55); margin-top: 2px; }
+.disciplines::before{background:rgba(14,18,22,.70)}
+.elements::before{background:rgba(14,18,22,.70)}
+.packages::before{background:rgba(14,18,22,.80)}
+.about::before{background:rgba(226,222,212,.86)}
+.testimony::before{background:rgba(214,210,198,.82)}
+.included::before{background:rgba(237,234,227,.82)}
+.disc-inner{position:relative;z-index:1}
+.elements .inner,.about .inner,.testimony .inner,
+.packages .inner,.included .inner{position:relative;z-index:1}
 
-/* ── INCLUDES ───────────────────────────────────── */
-.includes { background: var(--ink); }
-.includes h2 { color: #fff; }
-.includes .lead { color: #888; }
-.inc-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 2px;
-  margin-top: 48px;
-  background: var(--border-dk);
-  border-radius: var(--r);
-  overflow: hidden;
+/* ── Responsive ── */
+@media (max-width:980px){
+  .hero-band{grid-template-columns:repeat(2,1fr)}
+  .hero-band .cell:nth-child(3){border-inline-start:none;border-top:1px solid var(--hair-d)}
+  .hero-band .cell:nth-child(4){border-top:1px solid var(--hair-d)}
+  .disc-grid,.el-grid{grid-template-columns:repeat(2,1fr)}
+  .pkg{grid-template-columns:80px 1fr;gap:24px}
+  .pkg-meta{grid-column:1/-1;border-inline-start:none;border-top:1px solid var(--hair-d);padding:18px 0 0;flex-direction:row;flex-wrap:wrap;gap:24px}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .inc-grid,.prob-grid{grid-template-columns:1fr}
+  .price-table{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr;gap:32px}
 }
-.inc-item {
-  background: var(--ink-2);
-  padding: 28px 24px;
-  transition: background .25s;
-}
-.inc-item:hover { background: var(--ink-3); }
-.inc-num {
-  font-size: .65rem; font-weight: 700;
-  letter-spacing: 3px; color: var(--gold);
-  margin-bottom: 14px; display: block;
-}
-.inc-item h3 { color: #fff; font-size: .92rem; font-weight: 700; margin-bottom: 8px; }
-.inc-item p  { color: #666; font-size: .82rem; line-height: 1.65; }
-
-/* ── PRICING ────────────────────────────────────── */
-.pricing-section { background: var(--cream); padding: 96px 5%; }
-.price-wrap {
-  max-width: 620px; margin: 48px auto 0;
-  background: var(--ink);
-  border-radius: 20px;
-  overflow: hidden;
-}
-.price-header {
-  background: var(--gold);
-  padding: 28px 36px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.price-header-left .plan-name { font-size: 1.1rem; font-weight: 800; color: var(--ink); }
-.price-header-left .plan-tag  { font-size: .72rem; color: rgba(0,0,0,.55); margin-top: 2px; }
-.price-amount { text-align: left; }
-.price-amount .num { font-size: 3rem; font-weight: 900; color: var(--ink); line-height: 1; }
-.price-amount .per { font-size: .78rem; color: rgba(0,0,0,.5); margin-top: 2px; }
-.price-body { padding: 32px 36px; }
-.price-list { list-style: none; margin-bottom: 28px; }
-.price-list li {
-  display: flex; align-items: flex-start; gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border-dk);
-  color: #ccc; font-size: .88rem;
-}
-.price-list li:last-child { border-bottom: none; }
-.price-list li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
-.price-cta {
-  display: block; text-align: center;
-  background: var(--gold); color: var(--ink);
-  font-size: 1.05rem; font-weight: 800;
-  padding: 16px; border-radius: 10px;
-  text-decoration: none;
-  transition: opacity .2s, transform .2s var(--ease-spring);
-}
-.price-cta:hover { opacity: .9; transform: translateY(-2px); }
-.price-note { text-align: center; color: #444; font-size: .76rem; margin-top: 14px; }
-
-/* ── FAQ ────────────────────────────────────────── */
-.faq-section { background: var(--cream-2); padding: 96px 5%; }
-.faq-section h2 { text-align: center; margin-bottom: 48px; }
-.faq-list { max-width: 720px; margin: 0 auto; }
-.faq-item {
-  border-bottom: 1px solid var(--border-lt);
-  overflow: hidden;
-}
-.faq-q {
-  width: 100%; background: none; border: none; cursor: pointer;
-  text-align: right; direction: rtl;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 20px 0; gap: 16px;
-  font-family: 'Heebo', sans-serif;
-  font-size: .95rem; font-weight: 700; color: var(--ink);
-}
-.faq-q svg {
-  flex-shrink: 0; width: 20px; height: 20px;
-  transition: transform .35s var(--ease-spring);
-}
-.faq-item.open .faq-q svg { transform: rotate(45deg); }
-.faq-a {
-  font-size: .88rem; color: var(--muted); line-height: 1.75;
-  max-height: 0; overflow: hidden;
-  transition: max-height .45s var(--ease-spring), padding .3s;
-  padding: 0;
-}
-.faq-item.open .faq-a { max-height: 200px; padding-bottom: 18px; }
-
-/* ── FINAL CTA ──────────────────────────────────── */
-.final-cta {
-  background: var(--ink);
-  padding: 120px 5%;
-  text-align: center;
-  position: relative; overflow: hidden;
-}
-.final-cta::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(196,151,62,.1), transparent 70%);
-  pointer-events: none;
-}
-.final-cta h2 {
-  color: #fff; font-size: clamp(2rem,5vw,3.5rem);
-  margin-bottom: 18px; position: relative;
-}
-.final-cta h2 em { color: var(--gold); font-style: normal; }
-.final-cta p { color: #666; font-size: 1rem; margin-bottom: 36px; position: relative; }
-.final-cta .btn-gold { font-size: 1.05rem; padding: 16px 40px; position: relative; }
-.final-sub { color: #444; font-size: .78rem; margin-top: 14px; position: relative; }
-
-/* ── FOOTER ─────────────────────────────────────── */
-footer {
-  background: #060606;
-  padding: 40px 5%;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 16px;
-  border-top: 1px solid var(--border-dk);
-}
-.footer-logo img {
-  height: 28px;
-  filter: invert(1) brightness(1.5) opacity(.7);
-}
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { color: #444; font-size: .78rem; text-decoration: none; transition: color .2s; }
-.footer-links a:hover { color: var(--gold); }
-.footer-copy { color: #333; font-size: .75rem; }
-
-/* ── RESPONSIVE ─────────────────────────────────── */
-@media (max-width: 768px) {
-  .prob-grid  { grid-template-columns: 1fr; }
-  .inc-grid   { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-photos { grid-template-columns: 1fr 1fr; }
-  .photo-tall { grid-row: span 1; aspect-ratio: 1; }
-  .price-wrap { max-width: 100%; }
-  .price-header { flex-direction: column; gap: 12px; align-items: flex-start; }
-  .price-amount { text-align: right; }
-  footer { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .stats-inner { flex-wrap: wrap; }
-  .stat-item { min-width: 50%; }
-  .hero-actions { flex-direction: column; align-items: flex-start; }
+@media (max-width:640px){
+  section,.disciplines,.elements{padding:80px 24px}
+  .hero-content{padding:0 24px 48px}
+  nav{padding:0 20px}
+  .nav-meta{display:none}
+  .hero-band{grid-template-columns:1fr}
+  .disc-grid,.el-grid{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .foot-bot{flex-direction:column;gap:8px;align-items:flex-start}
+  .hero-actions{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -553,372 +515,493 @@ footer {
     <img src="logo_cropped.png" alt="Vitality Lab">
   </a>
   <div class="nav-right">
+    <span class="nav-meta">EST · TEL AVIV · 35.21°N</span>
     <a href="https://www.instagram.com/yaniv_stories/" target="_blank" class="nav-ig">
       <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       @yaniv_stories
     </a>
-    <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניינת בתכנית ה-10" class="nav-cta">
-      דברי איתי
-    </a>
+    <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת לשמוע על חבילות האימון" class="nav-cta">דברו איתי →</a>
   </div>
 </nav>
 
-<!-- HERO (kettlebell video) -->
+<!-- HERO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline
-         src="hero.mp4">
-  </video>
+  <video class="hero-video" autoplay muted loop playsinline
+         src="hero.mp4"></video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">Vitality Lab · The Vital Human Method</div>
+    <div class="hero-tag">
+      <span class="dot"></span>
+      <span>VITALITY LAB · THE VITAL HUMAN METHOD</span>
+    </div>
     <h1>
-      את כבר יודעת שאת צריכה לבנות שריר.
-      <em>הפעם תעשי את זה נכון.</em>
+      גוף שיעבוד <em>גם</em> ב-70.<br>
+      <span class="strong">מתחילים עכשיו.</span>
     </h1>
     <p class="hero-sub">
-      10 אימונים אישיים שיהפכו אותך לעצמאית בחדר כושר – לנצח.
-      מגיע אלייך הביתה. מבוסס מדע longevity.
+      שלוש דרכים להתאמן עם יניב — חדר כושר, אירובי בטבע, או ליד הבית.
+      כולן בנויות על מדע longevity, תנועה אמיתית, וכלים שנשארים איתך לכל החיים.
     </p>
     <div class="hero-actions">
-      <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניינת בתכנית ה-10"
-         class="btn-gold">
-        📲 שלחי הודעה ליניב
+      <a href="#packages" class="btn-ember">
+        <span>בחרו מסלול</span><span>↓</span>
       </a>
-      <span class="hero-scroll">גלגלי למטה</span>
+      <a href="https://wa.me/972523308211?text=היי יניב" class="btn-ghost-d">שיחת היכרות · 20 דק׳</a>
     </div>
   </div>
 </section>
+<div class="hero-band">
+  <div class="cell">
+    <div class="hb-label">METHOD</div>
+    <div class="hb-val">The Vital Human</div>
+  </div>
+  <div class="cell">
+    <div class="hb-label">FOCUS</div>
+    <div class="hb-val">Longevity · Strength</div>
+  </div>
+  <div class="cell">
+    <div class="hb-label">CERT</div>
+    <div class="hb-val">Wingate · 2019</div>
+  </div>
+  <div class="cell">
+    <div class="hb-label">FIELD</div>
+    <div class="hb-val">Gym · Trail · Cold</div>
+  </div>
+</div>
 
-<!-- STATS BAND -->
-<div class="stats-band">
-  <div class="stats-inner">
-    <div class="stat-item reveal">
-      <div class="stat-num">10</div>
-      <div class="stat-label">אימונים אישיים</div>
+<!-- DISCIPLINES -->
+<div class="disciplines">
+  <div class="disc-inner">
+    <div class="disc-eyebrow">
+      <span>FIG. 01 — מה אנחנו עושים</span>
     </div>
-    <div class="stat-item reveal reveal-d1">
-      <div class="stat-num">0→</div>
-      <div class="stat-label">מהתחלה מוחלטת</div>
-    </div>
-    <div class="stat-item reveal reveal-d2">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">ליווי שוטף אחרי</div>
-    </div>
-    <div class="stat-item reveal reveal-d3">
-      <div class="stat-num">מ׳</div>
-      <div class="stat-label">מוסמך ווינגייט</div>
+    <div class="disc-grid">
+      <div class="disc">
+        <div class="disc-num">01 / STRENGTH</div>
+        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+          <rect x="3" y="13" width="3" height="6"/><rect x="26" y="13" width="3" height="6"/>
+          <rect x="6" y="11" width="2" height="10"/><rect x="24" y="11" width="2" height="10"/>
+          <line x1="8" y1="16" x2="24" y2="16"/>
+        </svg>
+        <h3>כוח</h3>
+        <p>מסת שריר, צפיפות עצם, כוח מתפרץ — הבסיס לשנים קדימה.</p>
+      </div>
+      <div class="disc">
+        <div class="disc-num">02 / AEROBIC</div>
+        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M3 20 Q 8 8, 14 16 T 29 16"/>
+          <circle cx="3" cy="20" r="1.2" fill="currentColor"/>
+          <circle cx="29" cy="16" r="1.2" fill="currentColor"/>
+        </svg>
+        <h3>אירובי</h3>
+        <p>Zone 2, סיבולת לב-ריאה, מיטוכונדריה — המטבע של longevity.</p>
+      </div>
+      <div class="disc">
+        <div class="disc-num">03 / COLD</div>
+        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+          <line x1="16" y1="3" x2="16" y2="29"/>
+          <line x1="3" y1="16" x2="29" y2="16"/>
+          <line x1="6" y1="6" x2="26" y2="26"/>
+          <line x1="26" y1="6" x2="6" y2="26"/>
+        </svg>
+        <h3>קור</h3>
+        <p>Cold plunge, חשיפה מחזורית, נשימה — חוסן עצבי ופיזיולוגי.</p>
+      </div>
+      <div class="disc">
+        <div class="disc-num">04 / TRAIL</div>
+        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M3 26 L 11 14 L 16 20 L 21 10 L 29 26 Z"/>
+        </svg>
+        <h3>הרים</h3>
+        <p>טרקים, הליכה, גבהים — הגוף שלך על קרקע אמיתית.</p>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- PROBLEM -->
-<section class="section problem">
-  <div class="section-inner">
-    <span class="eyebrow reveal">מכירה את התחושה הזאת?</span>
-    <h2 class="reveal">את מגיעה למכון.<br>ומרגישה אבודה לחלוטין.</h2>
+<section class="problem">
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span>FIG. 02 — מה בדרך כלל לא עובד</span></div>
+    <h2 class="rv">מתחילים. עוצרים.<br><em>מרגישים שלא הולך.</em></h2>
     <div class="prob-grid">
-      <div class="prob-card reveal">
-        <div class="icon-wrap"><i data-lucide="activity"></i></div>
-        <h3>ממשיכה עם האליפטי</h3>
-        <p>כי זה מה שמכירים. קצת הליכה, קצת אירובי, ויוצאים עם תחושה שעשינו "משהו". אבל לא ממש רואים שינוי.</p>
+      <div class="prob rv">
+        <div class="prob-idx">01</div>
+        <h3>אין תכנית אמיתית</h3>
+        <p>זזים הרבה, בלי כיוון. מכשיר אחרי מכשיר, כיתה אחרי כיתה — בלי הבנה מה הגוף צריך באמת.</p>
       </div>
-      <div class="prob-card reveal reveal-d1">
-        <div class="icon-wrap"><i data-lucide="compass"></i></div>
-        <h3>לא יודעת על מה לגעת</h3>
-        <p>כל המכונות נראות מפחידות. מה קודם? כמה משקל? כמה חזרות? בלי מישהו שמסביר – לא ברור.</p>
+      <div class="prob rv rv-d1">
+        <div class="prob-idx">02</div>
+        <h3>אין ידע, אין ביטחון</h3>
+        <p>בלי בסיס — קשה לדעת אם מבצעים נכון, כמה עומס, ואיך להתקדם. אנשים נשארים תקועים.</p>
       </div>
-      <div class="prob-card reveal reveal-d2">
-        <div class="icon-wrap"><i data-lucide="zap"></i></div>
-        <h3>פילאטיס שלא מספיק</h3>
-        <p>פילאטיס ויוגה זה טוב – אבל בניית שריר אמיתי? זה רק עם כוח. ועם עומס מספיק. נקודה.</p>
+      <div class="prob rv rv-d2">
+        <div class="prob-idx">03</div>
+        <h3>פציעות חוזרות</h3>
+        <p>אימון גנרי על גוף ספציפי = עומס לא נכון על מפרקים, גב ועמוד שדרה.</p>
       </div>
-      <div class="prob-card reveal reveal-d3">
-        <div class="icon-wrap"><i data-lucide="timer"></i></div>
-        <h3>אבדת מוטיבציה שוב</h3>
-        <p>נרשמת, באת שבועיים, ואז החיים. בלי ידע ובלי תכנית ברורה – קשה להמשיך.</p>
+      <div class="prob rv rv-d3">
+        <div class="prob-idx">04</div>
+        <h3>מוטיבציה שנגמרת</h3>
+        <p>בלי מטרה ובלי תכנית שמתאימה לחיים — קשה להמשיך. זה לא חולשה, זה חוסר מבנה.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROGRAM -->
-<section class="section program" id="program">
-  <div class="section-inner">
-    <span class="eyebrow reveal">הפתרון</span>
-    <h2 class="reveal">תכנית ה-10 של Vitality Lab</h2>
-    <p class="lead reveal">לא אימון אישי רגיל. תהליך שמסתיים בעצמאות מלאה – ובגוף שתהיי גאה בו.</p>
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-dot">01</div>
-        <div class="step-body">
-          <h3>מתחילים אצלך בבית</h3>
-          <p>יניב מגיע אלייך. ללא לחץ, ללא ציוד מוזר. לומדים את הבסיסים: סקוואט, דדליפט, לאנג' – עם טכניקה מושלמת ומינימום עצבים.</p>
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 03 — שלושה מסלולים</span></div>
+    <h2 class="rv" style="color:var(--bone)">בחרו את הדרך<br><em>שמתאימה לכם.</em></h2>
+    <p class="lead rv rv-d1">שלוש חבילות — צורך אחר, אבל אותם עקרונות: תנועה נכונה, ידע אמיתי, ותוצאות לטווח ארוך.</p>
+
+    <div class="pkg-stack">
+      <article class="pkg rv">
+        <div class="pkg-num">PACKAGE / 01<small>STRENGTH</small></div>
+        <div>
+          <h2 class="pkg-title">להתאמן <em>נכון</em><br>בחדר כושר.</h2>
+          <p class="pkg-tagline">לפתח שריר וכוח, לבנות עצמאות בחדר כושר, ולשמר מסת שריר ועצם שנים קדימה.</p>
         </div>
-      </div>
-      <div class="step reveal">
-        <div class="step-dot">02</div>
-        <div class="step-body">
-          <h3>עוברים לחדר הכושר</h3>
-          <p>כשהבסיס יציב, עוברים לחדר. כל מכונה, כל תרגיל, כל כלי – עם הסבר מדויק ולמה. החדר מפסיק להיות מפחיד.</p>
+        <ul class="pkg-list">
+          <li>עקרונות אימון ומנחים נכונים</li>
+          <li>התאמה למטרות ולמגבלות שלך</li>
+          <li>תרגילים מתקנים מספורטתרפיה</li>
+          <li>שימור צפיפות עצם וכוח מתפרץ</li>
+          <li>מוביליטי לבית ולמשרד</li>
+        </ul>
+        <div class="pkg-meta">
+          <div class="pkg-meta-row"><span class="k">Location</span><span class="v">בית · ואז זינת׳ ברבל, ת״א</span></div>
+          <div class="pkg-meta-row"><span class="k">Equipment</span><span class="v">ללא ציוד נוסף</span></div>
+          <div class="pkg-meta-row"><span class="k">After</span><span class="v">תכנית עבודה + קו פתוח</span></div>
+          <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת חדר הכושר" class="pkg-cta">לחבילה זו ←</a>
         </div>
-      </div>
-      <div class="step reveal">
-        <div class="step-dot">03</div>
-        <div class="step-body">
-          <h3>התכנית שלך, לגוף שלך</h3>
-          <p>לא תבנית אינטרנטית. אימון שנבנה בשבילך – לפי הגוף שלך, הכישורים שלך, מה שמחבר אותך גם מנטלית.</p>
+      </article>
+
+      <article class="pkg rv rv-d1">
+        <div class="pkg-num">PACKAGE / 02<small>AEROBIC</small></div>
+        <div>
+          <h2 class="pkg-title">לרוץ, לטפס,<br><em>לנשום בקלות.</em></h2>
+          <p class="pkg-tagline">לרוץ בלי כאבים, לשפר קרדיו, לטייל בשטח — עם סיבולת אמיתית מאחור.</p>
         </div>
-      </div>
-      <div class="step reveal">
-        <div class="step-dot">04</div>
-        <div class="step-body">
-          <h3>אחרי 10 אימונים – ממשיכה לבד</h3>
-          <p>שולחת סרטוני ביצוע, יניב מגיב עם פידבק. התכנית מתעדכנת. ואת יודעת בדיוק מה לעשות.</p>
+        <ul class="pkg-list">
+          <li>תכנית Zone 2 עם מטרת ריצה ריאלית</li>
+          <li>אימוני כוח לשרירים תומכי ריצה</li>
+          <li>יציבות ומניעת פציעות</li>
+          <li>חיזוק כף הרגל + נשימות</li>
+          <li>חשיפה לקור · קואורדינציה · פרופריוספציה</li>
+        </ul>
+        <div class="pkg-meta">
+          <div class="pkg-meta-row"><span class="k">Location</span><span class="v">בית · זינת׳ ברבל / מיקום גמיש</span></div>
+          <div class="pkg-meta-row"><span class="k">Equipment</span><span class="v">שעון דופק (יש פתרון)</span></div>
+          <div class="pkg-meta-row"><span class="k">After</span><span class="v">תכנית עבודה + קו פתוח</span></div>
+          <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת האירובי" class="pkg-cta">לחבילה זו ←</a>
         </div>
-      </div>
-      <div class="step reveal">
-        <div class="step-dot">05</div>
-        <div class="step-body">
-          <h3>בונוס: תזונה ותוספים</h3>
-          <p>מה לאכול, כמה חלבון, אילו תוספים שווים. בלי דיאטות, בלי בולשיט. מה שעובד.</p>
+      </article>
+
+      <article class="pkg rv rv-d2">
+        <div class="pkg-num">PACKAGE / 03<small>HOME · PARK</small></div>
+        <div>
+          <h2 class="pkg-title">להתאמן <em>חזק</em><br>ליד הבית.</h2>
+          <p class="pkg-tagline">קרוב לבית, ציוד מינימלי — שריר, כוח ושריפת שומן בלי חדר כושר.</p>
         </div>
-      </div>
+        <ul class="pkg-list">
+          <li>מנחים נכונים — עם ובלי משקל</li>
+          <li>מיומנויות קטלבל (כוח · אירובי · פיצוץ)</li>
+          <li>תרגילי כוח במתקנים ציבוריים</li>
+          <li>שילוב אירובי ללא ריצה</li>
+          <li>עבודה על צפיפות עצם</li>
+        </ul>
+        <div class="pkg-meta">
+          <div class="pkg-meta-row"><span class="k">Location</span><span class="v">בית · ואז פארק קרוב</span></div>
+          <div class="pkg-meta-row"><span class="k">Equipment</span><span class="v">בסיום: עזרה ברכישה (250–400₪)</span></div>
+          <div class="pkg-meta-row"><span class="k">After</span><span class="v">תכנית עבודה + קו פתוח</span></div>
+          <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת אימוני הבית" class="pkg-cta">לחבילה זו ←</a>
+        </div>
+      </article>
     </div>
 
-    <!-- Inline video: lunge workout -->
-    <div class="video-showcase reveal">
-      <video autoplay muted loop playsinline webkit-playsinline
-             src="lunges.mp4"
-             style="width:100%;max-height:480px;object-fit:cover;display:block;">
-      </video>
-      <div class="video-label">אימון אמיתי · לאנג' עם דאמבלים · תנועה פונקציונלית</div>
+    <div class="video-showcase rv">
+      <video autoplay muted loop playsinline
+             src="lunges.mp4"></video>
+      <div class="video-label">REAL TRAINING · LUNGES · FUNCTIONAL MOVEMENT</div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="section about" id="about">
-  <div class="section-inner">
+<section class="about" id="about">
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span>FIG. 04 — מי זה יניב</span></div>
+    <h2 class="rv">מאמן שגם הולך<br>ומדבר את <em>הדיבור.</em></h2>
     <div class="about-grid">
-      <div class="about-photos reveal">
-        <img src="yaniv2.jpeg" alt="יניב – מונסרט" class="photo-tall">
-        <img src="yaniv-gym.jpeg" alt="יניב בחדר כושר" class="photo-sq">
-        <img src="pool.jpeg" alt="נחל המשושים" class="photo-sq">
+      <div class="about-photos rv">
+        <img src="yaniv2.jpeg" class="photo-tall" alt="יניב">
+        <img src="yaniv-gym.jpeg" class="photo-sq" alt="יניב בחדר כושר">
+        <img src="pool.jpeg" class="photo-sq" alt="נחל המשושים">
       </div>
       <div class="about-text">
-        <span class="eyebrow reveal">מי זה יניב?</span>
-        <h2 class="reveal">מאמן שגם הולך ומדבר את הדיבור.</h2>
-        <p class="reveal">יניב לא נכנס לחדר כושר בגיל 18 ומעולם לא יצא. הוא היה בסטארטאפ, ידע מהי לחץ, ישיבות, ושוכח לשתות מים. ואז הבין שמה שמחזיק בני אדם לאורך זמן – זה לא דיאטה. זה שריר.</p>
-        <p class="reveal">הוא עוקב אחרי Peter Attia ו-Andrew Huberman, עושה cold plunge בים בכל שישי, ויוצא לטרקים בהרים בכל העולם – שרטוטי. כן, גם בשלג.</p>
-        <p class="reveal">הוא גם מצחיק. זה חשוב.</p>
-        <div class="creds reveal">
-          <div class="cred"><i data-lucide="award"></i> מוסמך ווינגייט</div>
-          <div class="cred"><i data-lucide="brain"></i> Longevity Protocol</div>
-          <div class="cred"><i data-lucide="mountain"></i> טרקים בארץ ובעולם</div>
-          <div class="cred"><i data-lucide="wind"></i> Cold Exposure</div>
-          <div class="cred"><i data-lucide="lightbulb"></i> רקע בסטארטאפ</div>
+        <p class="rv">יניב לא נכנס לחדר כושר בגיל 18 ומעולם לא יצא. הוא היה בסטארטאפ — ידע מה זה לחץ, ישיבות, ולשכוח לשתות מים. ואז הבין שמה שמחזיק בני אדם לאורך זמן זה לא דיאטה. זה שריר, ולב חזק, ושינה.</p>
+        <p class="rv rv-d1">הוא עוקב אחרי Peter Attia ו-Andrew Huberman, עושה cold plunge בנחל המשושים בכל שישי, ויוצא לטרקים — בארץ ובעולם, כן, גם בשלג.</p>
+        <p class="rv rv-d2">הוא גם מצחיק. זה חשוב.</p>
+        <div class="creds rv rv-d3">
+          <div class="cred"><span class="k">Cert</span><span class="v">מוסמך ווינגייט</span></div>
+          <div class="cred"><span class="k">Frame</span><span class="v">Longevity Protocol</span></div>
+          <div class="cred"><span class="k">Trail</span><span class="v">טרקים בארץ + עולם</span></div>
+          <div class="cred"><span class="k">Cold</span><span class="v">Cold Exposure</span></div>
+          <div class="cred"><span class="k">Background</span><span class="v">סטארטאפ · 12 שנה</span></div>
+          <div class="cred"><span class="k">Lens</span><span class="v">ספורטתרפיה</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<div class="testimonial">
-  <div class="test-inner">
-    <span class="test-mark reveal">"</span>
-    <blockquote class="reveal">
-      תמיד ידעתי את החוקים הכלליים של קלוריות והוצאת אנרגיה – אבל זה לא קרוב למה שאני יודעת ומסוגלת עכשיו. בחיים לא חשבתי שאאהב ככה להתאמן בחדר כושר. התחושה היא שחזרתי אחורה בזמן 15 שנה. בעצם – מעולם לא הייתי חזקה ככה.<br><br>זה משנה חיים."
-    </blockquote>
-    <div class="test-cite reveal">
-      <div class="test-avatar">מ</div>
-      <div>
-        <div class="test-name">מתאמנת של יניב</div>
-        <div class="test-role">אמא, יזמית, ואדם שאוהב עכשיו להרים ברזל</div>
+<!-- ELEMENTS -->
+<section class="elements">
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 05 — איפה הגוף נבנה</span></div>
+    <h2 class="rv" style="color:var(--bone);max-width:22ch">לא רק בחדר כושר.<br><em>הגוף נבנה ביסודות.</em></h2>
+    <div class="el-grid">
+      <div class="el rv">
+        <div class="num">EL · 01 / STRENGTH</div>
+        <h3>ברזל ושריר</h3>
+        <p>סקוואט, דדליפט, מתח, פרס — הדברים שבונים את הגוף שיעמוד בעוד 30 שנה.</p>
+        <div class="temp"><span>LOAD</span><span>70–90% 1RM</span></div>
       </div>
+      <div class="el rv rv-d1">
+        <div class="num">EL · 02 / AEROBIC</div>
+        <h3>Zone 2</h3>
+        <p>45 דק׳ בקצב שיחה, פעמיים בשבוע. מיטוכונדריה חדשה. לב חזק. שריפת שומן.</p>
+        <div class="temp"><span>HR</span><span>60–70% MAX</span></div>
+      </div>
+      <div class="el rv rv-d2">
+        <div class="num">EL · 03 / COLD</div>
+        <h3>נחל וים</h3>
+        <p>חשיפה לקור באופן מבוקר. דופאמין, חוסן, חיבור לעצמך. כל שישי.</p>
+        <div class="temp"><span>TEMP</span><span>14–18°C / 3 MIN</span></div>
+      </div>
+      <div class="el rv rv-d3">
+        <div class="num">EL · 04 / TRAIL</div>
+        <h3>הר וטרק</h3>
+        <p>הרמון, גולן, מונסרט. הליכה בשטח אמיתי. הקואורדינציה והנשימה שאי אפשר לחקות בחדר.</p>
+        <div class="temp"><span>ELEV</span><span>+800m</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="included">
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span>FIG. 06 — מה כלול בכל חבילה</span></div>
+    <h2 class="rv">הכל. <em>ממש הכל.</em></h2>
+    <p class="lead rv rv-d1">כל חבילה מסתיימת בעצמאות מלאה — לא רק ב״גמרנו״.</p>
+    <div class="inc-grid">
+      <div class="inc rv">
+        <div class="inc-num">INC / 01</div>
+        <h3>אימון ראשון בבית</h3>
+        <p>מתחילים אצלך. בלי לחץ, בלי ציוד. לומדים את הבסיסים בסביבה נוחה.</p>
+      </div>
+      <div class="inc rv rv-d1">
+        <div class="inc-num">INC / 02</div>
+        <h3>תכנית אימון אישית</h3>
+        <p>תכנית שנבנתה לגוף שלך, למטרות שלך ולשגרה שלך. לא תבנית מהאינטרנט.</p>
+      </div>
+      <div class="inc rv rv-d2">
+        <div class="inc-num">INC / 03</div>
+        <h3>תרגילים מתקנים</h3>
+        <p>זיהוי מגבלות תנועה ומענה מבוסס ספורטתרפיה. אימון חזק — בלי לשבור את הגוף.</p>
+      </div>
+      <div class="inc rv">
+        <div class="inc-num">INC / 04</div>
+        <h3>המלצות תזונה</h3>
+        <p>תזונה שתומכת בגוף ובמוח — חלבון, תוספים, עקרונות שעובדים. בלי דיאטות.</p>
+      </div>
+      <div class="inc rv rv-d1">
+        <div class="inc-num">INC / 05</div>
+        <h3>קו פתוח לאחר</h3>
+        <p>גם אחרי סיום החבילה — יניב זמין לשאלות, לתיקונים ולעדכוני תכנית.</p>
+      </div>
+      <div class="inc rv rv-d2">
+        <div class="inc-num">INC / 06</div>
+        <h3>ראייה לטווח ארוך</h3>
+        <p>כל תרגיל, כל החלטה — מבוסס מחקר ומכוון לשמר את הגוף עשורים קדימה.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONY -->
+<div class="testimony">
+  <div class="inner">
+    <div class="test-eyebrow"><span class="bar"></span><span>FIG. 07 — לקוחה</span></div>
+    <p class="test-quote rv">
+      ״תמיד ידעתי את החוקים הכלליים של קלוריות והוצאת אנרגיה — אבל זה לא קרוב למה שאני יודעת ומסוגלת עכשיו. בחיים לא חשבתי שאאהב ככה להתאמן. התחושה היא שחזרתי 15 שנה אחורה. בעצם — <span class="strong">מעולם לא הייתי חזקה ככה.</span>״
+    </p>
+    <div class="test-cite rv rv-d1">
+      <div class="test-name">נטע / מתאמנת</div>
+      <div class="test-role">אמא · יזמית · אדם שאוהב עכשיו להרים ברזל</div>
     </div>
   </div>
 </div>
 
-<!-- INCLUDES -->
-<section class="section includes" id="includes">
-  <div class="section-inner">
-    <span class="eyebrow reveal">מה כלול</span>
-    <h2 class="reveal">הכל. ממש הכל.</h2>
-    <p class="lead reveal">תכנית ה-10 של Vitality Lab אינה "קורס". זה ליווי אישי מלא שנגמר בעצמאות.</p>
-    <div class="inc-grid">
-      <div class="inc-item reveal">
-        <div class="inc-icon"><i data-lucide="home"></i></div>
-        <span class="inc-num">01</span>
-        <h3>אימונים ביתיים ראשונים</h3>
-        <p>יניב מגיע אלייך. לומדים טכניקה נכונה לפני שנוגעים במכשיר.</p>
-      </div>
-      <div class="inc-item reveal reveal-d1">
-        <div class="inc-icon"><i data-lucide="dumbbell"></i></div>
-        <span class="inc-num">02</span>
-        <h3>כניסות לחדר כושר – כלולות</h3>
-        <p>גישה לחדר כושר פרמיום עם ציוד מקצועי. בלי תשלום נוסף.</p>
-      </div>
-      <div class="inc-item reveal reveal-d2">
-        <div class="inc-icon"><i data-lucide="clipboard-list"></i></div>
-        <span class="inc-num">03</span>
-        <h3>תכנית אימון אישית</h3>
-        <p>נבנתה לגוף שלך ולמטרות שלך. לא מקורות אינטרנטיים.</p>
-      </div>
-      <div class="inc-item reveal">
-        <div class="inc-icon"><i data-lucide="video"></i></div>
-        <span class="inc-num">04</span>
-        <h3>פידבק וידאו שוטף</h3>
-        <p>שולחים סרטוני ביצוע, יניב עונה עם תיקונים ואופטימיזציה.</p>
-      </div>
-      <div class="inc-item reveal reveal-d1">
-        <div class="inc-icon"><i data-lucide="leaf"></i></div>
-        <span class="inc-num">05</span>
-        <h3>פרוטוקול תזונה</h3>
-        <p>איך לאכול חלבון, אילו תוספים שווים, מה באמת חשוב.</p>
-      </div>
-      <div class="inc-item reveal reveal-d2">
-        <div class="inc-icon"><i data-lucide="users"></i></div>
-        <span class="inc-num">06</span>
-        <h3>קהילת Vitality Lab</h3>
-        <p>טיולי טבע, קבוצת תמיכה, ואנשים שמבינים שבריאות = אורח חיים.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="section-inner" style="text-align:center;">
-    <span class="eyebrow reveal">ההשקעה שלך</span>
-    <h2 class="reveal">תכנית ה-10 של Vitality Lab</h2>
-    <p class="lead reveal" style="margin:16px auto 0;">פעם אחת. נכון. לכל החיים.</p>
-    <div class="price-wrap reveal">
-      <div class="price-header">
-        <div class="price-header-left">
-          <div class="plan-name">THE 10 PROGRAM</div>
-          <div class="plan-tag">המסלול המלא · Early Bird לראשונות 5</div>
-        </div>
-        <div class="price-amount">
-          <div class="num">2,800 ₪</div>
-          <div class="per">לחבילה מלאה</div>
-        </div>
+<section class="pricing" id="pricing">
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span>FIG. 08 — תמחור</span></div>
+    <h2 class="rv">השקעה ברורה,<br><em>החזר לכל החיים.</em></h2>
+    <p class="lead rv rv-d1">אותם עקרונות בשלוש דרכים — כל חבילה מסתיימת בתכנית עבודה עצמאית.</p>
+    <div class="price-table">
+      <div class="price-cell head">
+        <div class="ehd">PRICING TABLE</div>
+        <div class="et">שלוש חבילות.<br>תכנית אחת לכל החיים.</div>
       </div>
-      <div class="price-body">
-        <ul class="price-list">
-          <li>10 אימונים אישיים מלאים (60 דקות כל אחד)</li>
-          <li>2–3 אימונים ראשונים בבית שלך</li>
-          <li>כניסות לחדר כושר – כלולות</li>
-          <li>תכנית אימון מותאמת אישית</li>
-          <li>פידבק וידאו חודש לאחר התכנית</li>
-          <li>פרוטוקול חלבון ותוספים</li>
-          <li>חברות בקהילת Vitality Lab</li>
+      <div class="price-cell rv">
+        <div class="pkn">PACKAGE 01</div>
+        <div class="pkt">חדר כושר</div>
+        <div class="pkv">2,800<span class="cur"> ₪</span></div>
+        <div class="pkr">חבילה מלאה</div>
+        <ul style="margin-top:18px">
+          <li>אימון ראשון בבית</li>
+          <li>אימונים בזינת׳ ברבל</li>
+          <li>ללא ציוד נוסף</li>
+          <li>תכנית + קו פתוח</li>
+          <li>המלצות תזונה</li>
         </ul>
-        <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניינת בתכנית ה-10 של Vitality Lab"
-           class="price-cta">
-          📲 שלחי הודעה ליניב – מתחילות עכשיו
-        </a>
-        <p class="price-note">אפשרות תשלום בתשלומים · ראשונות 5 הנרשמות: 2,400 ₪</p>
+        <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת חדר הכושר" class="pkc">לפרטים ←</a>
+      </div>
+      <div class="price-cell rv rv-d1">
+        <div class="pkn">PACKAGE 02</div>
+        <div class="pkt">אירובי ואנאירובי</div>
+        <div class="pkv contact">לפרטים</div>
+        <div class="pkr">תיאום אישי</div>
+        <ul style="margin-top:18px">
+          <li>אימון ראשון בבית</li>
+          <li>מיקום גמיש</li>
+          <li>שעון דופק נדרש</li>
+          <li>Zone 2 + כוח</li>
+          <li>המלצות תזונה</li>
+        </ul>
+        <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת האירובי" class="pkc">לפרטים ←</a>
+      </div>
+      <div class="price-cell rv rv-d2">
+        <div class="pkn">PACKAGE 03</div>
+        <div class="pkt">בית ופארק</div>
+        <div class="pkv contact">לפרטים</div>
+        <div class="pkr">תיאום אישי</div>
+        <ul style="margin-top:18px">
+          <li>אימון ראשון בבית</li>
+          <li>פארק קרוב לבית</li>
+          <li>ציוד 250–400₪ בסיום</li>
+          <li>קטלבל + פונקציונלי</li>
+          <li>המלצות תזונה</li>
+        </ul>
+        <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת אימוני הבית" class="pkc">לפרטים ←</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq-section">
-  <div class="section-inner">
-    <h2 class="reveal">שאלות נפוצות</h2>
+<section class="faq">
+  <div class="inner">
+    <div class="eyebrow"><span class="bar"></span><span>FIG. 09 — שאלות נפוצות</span></div>
+    <h2 class="rv">שאלות שנשאלות,<br><em>תשובות ישירות.</em></h2>
     <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q">
-          האם אני צריכה ניסיון מוקדם?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </button>
-        <div class="faq-a">בכלל לא. התכנית בנויה לנשים שמתחילות מ-0. יניב מתחיל מהבסיסים, בבית שלך, ללא ציוד מיוחד.</div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="idx">01</span><span class="qt">מה ההבדל בין החבילות?</span><span class="pm">+</span></button>
+        <div class="faq-a">כל חבילה ממוקדת בסוג אחר של כושר: 01 לבניית שריר בחדר כושר, 02 לסיבולת ואירובי, 03 לאימון ליד הבית עם ציוד מינימלי. כולן מסתיימות בתכנית עבודה ובקו פתוח.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-q">
-          אני לא אוהבת חדר כושר. זה בסדר?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </button>
-        <div class="faq-a">זה בדיוק הנקודה. רוב הנשים שמגיעות ליניב לא אהבו חדר כושר – עד שהבינו מה לעשות שם.</div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="idx">02</span><span class="qt">האם אני צריך/ה ניסיון מוקדם?</span><span class="pm">+</span></button>
+        <div class="faq-a">בכלל לא. כל החבילות בנויות לאנשים שמתחילים מ-0. יניב מתחיל מהבסיסים — אצלך בבית, ללא ציוד מיוחד.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-q">
-          מה קורה אחרי 10 האימונים?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </button>
-        <div class="faq-a">ממשיכים בתקשורת: שולחים סרטוני ביצוע ומקבלים פידבק. יניב גם מעדכן את התכנית לפי ההתקדמות שלך.</div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="idx">03</span><span class="qt">היכן מתקיימים האימונים?</span><span class="pm">+</span></button>
+        <div class="faq-a">האימון הראשון תמיד אצלך בבית. חבילה 01 ממשיכה בחדר כושר זינת׳ ברבל, ת״א. חבילה 02 גמישה במיקום. חבילה 03 ממשיכה בפארק קרוב לבית.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-q">
-          האם כוללת ייעוץ תזונה?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </button>
-        <div class="faq-a">לא ייעוץ דיאטני רשמי, אבל כן: פרוטוקול חלבון, המלצות תוספים, ועקרונות תזונה לבניית שריר.</div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="idx">04</span><span class="qt">מה קורה אחרי שהחבילה מסתיימת?</span><span class="pm">+</span></button>
+        <div class="faq-a">מקבלים תכנית עבודה מסודרת קדימה וקו פתוח להתייעצויות. יניב זמין לשאלות, לתיקונים ולעדכוני תכנית.</div>
       </div>
-      <div class="faq-item reveal">
-        <button class="faq-q">
-          אפשר לשלם בתשלומים?
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </button>
-        <div class="faq-a">כן. 50% מראש, 50% לאחר 5 האימונים הראשונים.</div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="idx">05</span><span class="qt">האם יש צורך בציוד מיוחד?</span><span class="pm">+</span></button>
+        <div class="faq-a">חבילה 01: ללא ציוד נוסף. חבילה 02: שעון דופק (יש פתרון אם אין). חבילה 03: בסיום, יניב יעזור לרכוש ציוד מינימלי במחיר 250–400 ₪.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="idx">06</span><span class="qt">האם כוללת ייעוץ תזונה?</span><span class="pm">+</span></button>
+        <div class="faq-a">לא ייעוץ דיאטני רשמי, אבל כן: המלצות תזונה תומכות גוף ומוח, פרוטוקול חלבון והמלצות תוספים — מה שעובד בפועל.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span class="idx">07</span><span class="qt">אפשר לשלם בתשלומים?</span><span class="pm">+</span></button>
+        <div class="faq-a">כן. בחבילת חדר הכושר: 50% מראש, 50% לאחר 5 האימונים הראשונים. לשאר החבילות — בתיאום אישי.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <h2 class="reveal">פעם אחת,<br><em>נכון.</em></h2>
-  <p class="reveal">10 אימונים שיתנו לך את הידע, הביטחון והגוף – לכל החיים.</p>
-  <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניינת בתכנית ה-10"
-     class="btn-gold reveal">
-    📲 שלחי הודעה ליניב עכשיו
-  </a>
-  <p class="final-sub reveal">מקומות מוגבלים · ראשונות 5 הנרשמות: 2,400 ₪</p>
+<!-- FINAL -->
+<section class="final">
+  <div class="inner">
+    <h2 class="rv">בחרתם מסלול?<br><em>הגיע הזמן להתחיל.</em></h2>
+    <p class="rv rv-d1">שלחו הודעה ליניב — שיחת היכרות 20 דקות, ללא מחויבות. נמצא יחד את החבילה שמתאימה לכם.</p>
+    <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת לשמוע על חבילות האימון" class="btn-ember rv rv-d2">
+      <span>שלחו הודעה ליניב</span><span>→</span>
+    </a>
+    <div class="meta rv rv-d3">כל האימונים הראשונים — אצלכם בבית · TEL AVIV</div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <img src="logo_cropped.png" alt="Vitality Lab">
+  <div class="foot">
+    <div class="foot-brand">
+      <div class="foot-logo"><img src="logo_cropped.png" alt="Vitality Lab"></div>
+      <p>The Vital Human Method. אימון אישי מבוסס מדע — חדר כושר, אירובי, וטבע. תל אביב.</p>
+    </div>
+    <div class="foot-col">
+      <h4>חבילות</h4>
+      <ul>
+        <li><a href="#packages">01 · חדר כושר</a></li>
+        <li><a href="#packages">02 · אירובי</a></li>
+        <li><a href="#packages">03 · בית ופארק</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>קשר</h4>
+      <ul>
+        <li><a href="https://wa.me/972523308211">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/yaniv_stories/" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Cert</h4>
+      <ul>
+        <li>מוסמך ווינגייט</li>
+        <li>Longevity Coach</li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/yaniv_stories/" target="_blank">Instagram</a>
-    <a href="https://wa.me/972523308211">WhatsApp</a>
+  <div class="foot-bot">
+    <span>© 2026 VITALITY LAB</span>
+    <span>THE VITAL HUMAN METHOD</span>
   </div>
-  <div class="footer-copy">© 2025 Vitality Lab · The Vital Human Method</div>
 </footer>
 
 <script>
-// Lucide icons
-lucide.createIcons();
-
-// Mobile video autoplay
-const videos = document.querySelectorAll('video');
-const tryPlay = v => v.play().catch(() => {});
-videos.forEach(v => tryPlay(v));
-const vidObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) tryPlay(e.target); else e.target.pause(); });
-}, { threshold: 0.2 });
-videos.forEach(v => vidObs.observe(v));
-document.addEventListener('touchstart', () => videos.forEach(v => tryPlay(v)), { once: true });
-
-// Scroll reveal
-const observer = new IntersectionObserver(
-  (entries) => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); }),
-  { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+const obs = new IntersectionObserver(
+  es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('in') }),
+  { threshold:0.12, rootMargin:'0px 0px -40px 0px' }
 );
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
-// FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
+    const open = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+    if(!open) item.classList.add('open');
   });
 });
 </script>
