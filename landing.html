@@ -57,21 +57,23 @@ body{
 nav{
   position:fixed;inset-block-start:0;inset-inline:0;z-index:100;
   height:64px;padding:0 32px;
-  display:flex;align-items:center;justify-content:space-between;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
   background:rgba(14,18,22,.88);
   backdrop-filter:blur(18px) saturate(140%);
   border-bottom:1px solid var(--hair-d);
 }
+.nav-logo{justify-self:start}
 .nav-logo img{height:32px;filter:invert(1) brightness(1.8);display:block}
 .nav-ig-center{
-  position:absolute;left:50%;transform:translateX(-50%);
-  color:var(--ash);font-size:.76rem;text-decoration:none;
+  justify-self:center;
+  color:var(--bone-2);font-size:.76rem;text-decoration:none;
   font-family:var(--mono);letter-spacing:.13em;
   display:flex;align-items:center;gap:8px;
   transition:color .2s;white-space:nowrap;
 }
 .nav-ig-center svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 .nav-ig-center:hover{color:var(--ember)}
+.nav-cta{justify-self:end}
 .nav-cta{
   background:var(--bone);color:var(--basalt);
   padding:10px 18px;border-radius:2px;
