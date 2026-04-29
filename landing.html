@@ -165,33 +165,6 @@ nav{
 .hb-label{font-family:var(--mono);font-size:.76rem;letter-spacing:.2em;color:var(--ash);text-transform:uppercase;margin-bottom:6px}
 .hb-val{font-family:var(--sans);font-size:.98rem;color:var(--bone);font-weight:300;letter-spacing:.04em;line-height:1.3}
 
-/* ── DISCIPLINES ── */
-.disciplines{
-  background:var(--basalt);
-  color:var(--bone);
-  padding:80px 48px;border-top:1px solid var(--hair-d);
-  position:relative;
-}
-.disc-inner{max-width:1200px;margin:0 auto}
-.disc-eyebrow{
-  display:flex;align-items:center;gap:12px;
-  color:var(--ash);margin-bottom:36px;
-  font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
-}
-.disc-eyebrow::after{content:"";flex:1;height:1px;background:var(--hair-d);min-width:20px}
-.disc-eyebrow span{flex-shrink:0}
-.disc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair-d)}
-.disc{
-  background:transparent;padding:32px 28px;
-  display:flex;flex-direction:column;gap:14px;min-height:200px;
-  transition:background .3s;
-}
-.disc:hover{background:rgba(237,234,227,.07)}
-.disc-num{font-family:var(--mono);font-size:.76rem;letter-spacing:.2em;color:var(--ember)}
-.disc-glyph{width:34px;height:34px;color:var(--bone)}
-.disc h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;letter-spacing:-.01em;line-height:1.15;color:var(--bone)}
-.disc p{font-size:.92rem;color:var(--ash);line-height:1.6}
-
 /* ── SECTION base ── */
 section{padding:128px 48px}
 .inner{max-width:1200px;margin:0 auto}
@@ -211,28 +184,32 @@ h2 em{font-family:var(--serif);font-style:normal;font-weight:300}
 h2 .strong{font-weight:700}
 .lead{font-size:1.02rem;color:var(--ash-2);max-width:54ch;margin-top:24px;line-height:1.75}
 
-/* ── PROBLEM ── */
-.problem{background:var(--bone)}
-.prob-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+/* ── PHILOSOPHY INTRO ── */
+.philosophy{background:var(--bone)}
+.phil-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
   background:var(--hair);margin-top:64px;border-top:1px solid var(--hair);
 }
-.prob{
-  background:var(--bone);padding:40px 36px;
+.phil-card{
+  background:var(--bone);padding:40px 32px;
   display:flex;flex-direction:column;gap:14px;
 }
-.prob-idx{font-family:var(--mono);font-size:.80rem;color:var(--ember);letter-spacing:.22em}
-.prob h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;letter-spacing:-.01em;line-height:1.2}
-.prob p{font-size:.92rem;color:var(--ash-2);line-height:1.7}
+.phil-num{font-family:var(--mono);font-size:.78rem;color:var(--ember);letter-spacing:.22em}
+.phil-card h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;letter-spacing:-.01em;line-height:1.2}
+.phil-card p{font-size:.9rem;color:var(--ash-2);line-height:1.72}
 
 /* ── PACKAGES ── */
 .packages{background:url('morskie-oko.webp') center/cover no-repeat var(--basalt);color:var(--bone);position:relative}
 .packages .lead{color:var(--ash)}
+.packages::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:rgba(14,18,22,.80)}
+.packages .inner{position:relative;z-index:2}
 .pkg-stack{display:flex;flex-direction:column;margin-top:64px;border-top:1px solid var(--hair-d)}
+
+/* expanded package row */
 .pkg{
-  display:grid;grid-template-columns:120px 1fr 1fr 240px;
-  gap:48px;align-items:start;
-  padding:56px 0;
+  display:grid;grid-template-columns:120px 1fr;
+  gap:56px;align-items:start;
+  padding:64px 0;
   border-bottom:1px solid var(--hair-d);
   transition:background .35s var(--ease);
 }
@@ -242,6 +219,7 @@ h2 .strong{font-weight:700}
   padding-top:6px;
 }
 .pkg-num small{display:block;color:var(--ash);font-size:.74rem;margin-top:8px;letter-spacing:.18em}
+.pkg-body{display:flex;flex-direction:column;gap:0}
 .pkg-title{
   font-family:var(--sans);font-weight:300;
   font-size:clamp(1.5rem,2.6vw,2.2rem);
@@ -249,26 +227,46 @@ h2 .strong{font-weight:700}
   max-width:none;
 }
 .pkg-title em{font-family:var(--serif);font-style:normal;font-weight:400}
-.pkg-tagline{margin-top:14px;font-size:.92rem;color:var(--ash);line-height:1.7;max-width:32ch}
-.pkg-list{list-style:none;display:flex;flex-direction:column;gap:10px;padding-top:6px}
-.pkg-list li{
-  font-size:.94rem;color:var(--bone-2);line-height:1.55;
+.pkg-intro{
+  font-size:.98rem;color:var(--bone-2);line-height:1.82;font-weight:300;
+  padding:20px 24px;
+  border-inline-start:2px solid var(--ember);
+  background:rgba(194,90,42,.06);
+  margin:20px 0 36px;
+}
+.pkg-two-col{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:36px;margin-bottom:36px;
+}
+.pkg-col-label{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;
+  color:var(--ember);text-transform:uppercase;margin-bottom:16px;display:block;
+}
+.pkg-col-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.pkg-col-list li{
+  font-size:.9rem;color:var(--bone-2);line-height:1.6;
   padding-inline-start:18px;position:relative;
 }
-.pkg-list li::before{
+.pkg-col-list li::before{
   content:"";position:absolute;inset-inline-start:0;top:.7em;
   width:8px;height:1px;background:var(--ember);
 }
-.pkg-meta{
-  display:flex;flex-direction:column;gap:14px;
-  border-inline-start:1px solid var(--hair-d);padding-inline-start:24px;
+.pkg-note{
+  font-size:.82rem;color:var(--ash);font-style:italic;
+  margin-top:12px;padding-inline-start:18px;
 }
-.pkg-meta-row{display:flex;flex-direction:column;gap:4px}
-.pkg-meta-row .k{font-family:var(--mono);font-size:.76rem;letter-spacing:.18em;color:var(--ash);text-transform:uppercase}
-.pkg-meta-row .v{font-size:.86rem;color:var(--bone-2);line-height:1.4}
+.pkg-clarif{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--hair-d);margin-bottom:28px;
+}
+.pkg-clarif-cell{background:rgba(14,18,22,.65);padding:20px 18px}
+.pkg-clarif-q{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--ember);
+  text-transform:uppercase;margin-bottom:8px;display:block;
+}
+.pkg-clarif-a{font-size:.84rem;color:var(--bone-2);line-height:1.65}
 .pkg-cta{
   display:inline-flex;align-items:center;gap:10px;
-  margin-top:8px;
   font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ember);text-decoration:none;
   border-bottom:1px solid var(--ember);padding-bottom:6px;width:fit-content;
@@ -345,20 +343,6 @@ h2 .strong{font-weight:700}
   display:flex;justify-content:space-between;border-top:1px dashed var(--hair-d);padding-top:14px;
 }
 
-/* ── INCLUDED ── */
-.included{background:url('bg-waterfall.webp') center/cover no-repeat var(--bone);position:relative}
-.inc-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--hair);margin-top:64px;border:1px solid var(--hair);
-}
-.inc{
-  background:rgba(237,234,227,.82);padding:36px 30px;
-  display:flex;flex-direction:column;gap:14px;min-height:220px;
-}
-.inc-num{font-family:var(--mono);font-size:.76rem;color:var(--ember);letter-spacing:.22em}
-.inc h3{font-family:var(--sans);font-weight:600;font-size:1rem;letter-spacing:-.01em}
-.inc p{font-size:.92rem;color:var(--ash-2);line-height:1.65}
-
 /* ── TESTIMONY ── */
 .testimony{background:url('bg-lake.webp') center/cover no-repeat var(--bone-3);color:var(--basalt);padding:128px 48px;position:relative}
 .testimony .inner{max-width:840px}
@@ -377,65 +361,6 @@ h2 .strong{font-weight:700}
 }
 .test-name{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;font-weight:600;text-transform:uppercase}
 .test-role{font-size:.86rem;color:var(--ash-2)}
-
-/* ── PRICING ── */
-.pricing{background:var(--bone)}
-.price-table{
-  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1px;
-  background:var(--hair);margin-top:64px;border:1px solid var(--hair);
-}
-.price-cell{background:var(--bone);padding:24px 22px}
-.price-cell.head{background:var(--basalt);color:var(--bone)}
-.price-cell.head .ehd{font-family:var(--mono);font-size:.6rem;color:var(--ash);letter-spacing:.22em;margin-bottom:8px;text-transform:uppercase}
-.price-cell.head .et{font-family:var(--serif);font-style:italic;font-size:1.2rem;font-weight:400;line-height:1.4}
-.price-cell .pkn{font-family:var(--mono);font-size:.76rem;letter-spacing:.22em;color:var(--ember);margin-bottom:10px;text-transform:uppercase}
-.price-cell .pkt{font-family:var(--sans);font-weight:600;font-size:.95rem;margin-bottom:14px;line-height:1.3}
-.price-cell .pkv{font-family:var(--serif);font-size:2.1rem;font-weight:400;letter-spacing:-.02em;line-height:1}
-.price-cell .pkv .cur{font-size:1rem;color:var(--ash-2)}
-.price-cell .pkv.contact{font-size:1.1rem;font-style:italic;color:var(--ash-2)}
-.price-cell .pkr{font-family:var(--mono);font-size:.76rem;color:var(--ash-2);letter-spacing:.16em;margin-top:6px;text-transform:uppercase}
-.price-cell ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:.84rem;color:var(--ash-2);line-height:1.5}
-.price-cell ul li{padding-inline-start:14px;position:relative}
-.price-cell ul li::before{content:"";position:absolute;inset-inline-start:0;top:.6em;width:6px;height:1px;background:var(--ember)}
-.price-cell .pkc{
-  display:inline-flex;align-items:center;gap:10px;margin-top:18px;
-  background:var(--basalt);color:var(--bone);
-  font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  padding:14px 18px;border-radius:2px;text-decoration:none;
-  transition:background .2s;
-}
-.price-cell .pkc:hover{background:var(--ember)}
-
-/* ── FAQ ── */
-.faq{background:var(--bone-2)}
-.faq-list{margin-top:48px;max-width:880px}
-.faq-item{border-top:1px solid var(--hair)}
-.faq-item:last-child{border-bottom:1px solid var(--hair)}
-.faq-q{
-  width:100%;background:none;border:none;cursor:pointer;
-  text-align:right;direction:rtl;
-  display:flex;justify-content:space-between;align-items:center;gap:24px;
-  padding:28px 0;
-  font-family:var(--sans);font-size:1.05rem;font-weight:500;color:var(--basalt);
-  transition:color .2s;
-}
-.faq-q:hover{color:var(--ember)}
-.faq-q .idx{font-family:var(--mono);font-size:.7rem;color:var(--ember);letter-spacing:.18em;flex-shrink:0;width:36px}
-.faq-q .qt{flex:1;text-align:right}
-.faq-q .pm{
-  width:24px;height:24px;border:1px solid var(--basalt);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  font-family:var(--mono);font-size:.9rem;font-weight:400;
-  transition:transform .35s var(--ease),background .25s,color .25s;
-}
-.faq-item.open .pm{transform:rotate(45deg);background:var(--ember);border-color:var(--ember);color:var(--bone)}
-.faq-a{
-  max-height:0;overflow:hidden;
-  transition:max-height .45s var(--ease),padding .35s;
-  font-size:.95rem;color:var(--ash-2);line-height:1.8;
-  padding:0 36px 0 0;
-}
-.faq-item.open .faq-a{max-height:340px;padding-bottom:28px}
 
 /* ── FINAL CTA ── */
 .final{
@@ -457,6 +382,22 @@ h2 .strong{font-weight:700}
   letter-spacing:.18em;text-transform:uppercase;position:relative;
 }
 
+/* ── Section video bg ── */
+.section-bg-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  z-index:0;pointer-events:none;
+}
+
+/* ── Section bg overlays ── */
+.elements::before,.about::before,.testimony::before,.packages::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+}
+.elements::before{background:rgba(14,18,22,.70)}
+.about::before{background:rgba(226,222,212,.86)}
+.testimony::before{background:rgba(214,210,198,.82)}
+.elements .inner,.about .inner,.testimony .inner,.packages .inner,.final .inner{position:relative;z-index:2}
+
 /* ── FOOTER ── */
 footer{
   background:#06090C;color:var(--ash);padding:56px 48px 36px;
@@ -477,66 +418,38 @@ footer{
   text-transform:uppercase;
 }
 
-/* ── Section video bg ── */
-.section-bg-video{
-  position:absolute;inset:0;
-  width:100%;height:100%;object-fit:cover;
-  z-index:0;pointer-events:none;
-}
-
-/* ── Section bg overlays ── */
-.disciplines::before,.elements::before,.about::before,.testimony::before,
-.packages::before,.included::before{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
-}
-.disciplines::before{background:rgba(14,18,22,.70)}
-.elements::before{background:rgba(14,18,22,.70)}
-.packages::before{background:rgba(14,18,22,.80)}
-.about::before{background:rgba(226,222,212,.86)}
-.testimony::before{background:rgba(214,210,198,.82)}
-.included::before{background:rgba(237,234,227,.82)}
-.disc-inner{position:relative;z-index:2}
-.elements .inner,.about .inner,.testimony .inner,
-.packages .inner,.included .inner,.final .inner{position:relative;z-index:2}
-
 /* ── Responsive ── */
 @media (max-width:980px){
   .hero-band{grid-template-columns:repeat(2,1fr)}
   .hero-band .cell:nth-child(3){border-inline-start:none;border-top:1px solid var(--hair-d)}
   .hero-band .cell:nth-child(4){border-top:1px solid var(--hair-d)}
-  .disc-grid,.el-grid{grid-template-columns:repeat(2,1fr)}
-  .pkg{grid-template-columns:80px 1fr;gap:24px}
-  .pkg-meta{grid-column:1/-1;border-inline-start:none;border-top:1px solid var(--hair-d);padding:18px 0 0;flex-direction:row;flex-wrap:wrap;gap:24px}
+  .el-grid{grid-template-columns:repeat(2,1fr)}
+  .pkg{grid-template-columns:80px 1fr;gap:28px}
+  .pkg-two-col{grid-template-columns:1fr;gap:24px}
+  .pkg-clarif{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr;gap:48px}
-  .inc-grid,.prob-grid{grid-template-columns:1fr}
-  .price-table{grid-template-columns:1fr}
+  .phil-grid{grid-template-columns:repeat(2,1fr)}
   .foot{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media (max-width:640px){
-  section,.disciplines,.elements,.final{padding:80px 24px}
+  section,.elements,.final{padding:80px 24px}
   .hero-content{padding:0 24px 48px}
   nav{padding:0 20px}
-  .nav-meta{display:none}
   .hero-band{grid-template-columns:1fr}
-  /* package rows: collapse to single column so pkg-list isn't squeezed into 80px */
   .pkg{grid-template-columns:1fr;gap:20px}
-  .pkg-meta{flex-direction:column;gap:14px}
-  .pkg-tagline{max-width:none}
-  .disc-grid,.el-grid{grid-template-columns:1fr}
+  .pkg-clarif{grid-template-columns:1fr}
+  .el-grid{grid-template-columns:1fr}
+  .phil-grid{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
   .foot-bot{flex-direction:column;gap:8px;align-items:flex-start}
   .hero-actions{flex-direction:column;align-items:flex-start}
-  /* video showcase: shorter on mobile */
   .video-showcase video{max-height:260px}
-  /* about photos: single column on narrow screens */
   .about-photos{grid-template-columns:1fr}
   .photo-tall{aspect-ratio:4/3;grid-row:auto}
 }
 @media (max-width:480px){
-
   .nav-cta{padding:8px 14px;font-size:.66rem;letter-spacing:.1em}
-  /* smaller section padding */
-  section,.disciplines,.elements,.final{padding:64px 20px}
+  section,.elements,.final{padding:64px 20px}
   .hero-content{padding:0 20px 40px}
   nav{padding:0 16px}
 }
@@ -558,8 +471,7 @@ footer{
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline
-         src="hero.mp4"></video>
+  <video class="hero-video" autoplay muted loop playsinline src="hero.mp4"></video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-tag">
@@ -601,162 +513,198 @@ footer{
   </div>
 </div>
 
-<!-- DISCIPLINES -->
-<div class="disciplines">
-  <video class="section-bg-video" autoplay muted loop playsinline src="15128731_1080_1920_30fps.mp4"></video>
-  <div class="disc-inner">
-    <div class="disc-eyebrow">
-      <span>FIG. 01 — מה אנחנו עושים</span>
-    </div>
-    <div class="disc-grid">
-      <div class="disc">
-        <div class="disc-num">01 / STRENGTH</div>
-        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
-          <rect x="3" y="13" width="3" height="6"/><rect x="26" y="13" width="3" height="6"/>
-          <rect x="6" y="11" width="2" height="10"/><rect x="24" y="11" width="2" height="10"/>
-          <line x1="8" y1="16" x2="24" y2="16"/>
-        </svg>
-        <h3>כוח</h3>
-        <p>מסת שריר, צפיפות עצם, כוח מתפרץ — הבסיס לשנים קדימה.</p>
-      </div>
-      <div class="disc">
-        <div class="disc-num">02 / AEROBIC</div>
-        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M3 20 Q 8 8, 14 16 T 29 16"/>
-          <circle cx="3" cy="20" r="1.2" fill="currentColor"/>
-          <circle cx="29" cy="16" r="1.2" fill="currentColor"/>
-        </svg>
-        <h3>אירובי</h3>
-        <p>Zone 2, סיבולת לב-ריאה, מיטוכונדריה — המטבע של longevity.</p>
-      </div>
-      <div class="disc">
-        <div class="disc-num">03 / COLD</div>
-        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
-          <line x1="16" y1="3" x2="16" y2="29"/>
-          <line x1="3" y1="16" x2="29" y2="16"/>
-          <line x1="6" y1="6" x2="26" y2="26"/>
-          <line x1="26" y1="6" x2="6" y2="26"/>
-        </svg>
-        <h3>קור</h3>
-        <p>Cold plunge, חשיפה מחזורית, נשימה — חוסן עצבי ופיזיולוגי.</p>
-      </div>
-      <div class="disc">
-        <div class="disc-num">04 / TRAIL</div>
-        <svg class="disc-glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M3 26 L 11 14 L 16 20 L 21 10 L 29 26 Z"/>
-        </svg>
-        <h3>הרים</h3>
-        <p>טרקים, הליכה, גבהים — הגוף שלך על קרקע אמיתית.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROBLEM -->
-<section class="problem">
+<!-- PHILOSOPHY / LONGEVITY INTRO -->
+<section class="philosophy" id="philosophy">
   <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span>FIG. 02 — מה בדרך כלל לא עובד</span></div>
-    <h2 class="rv">מתחילים. עוצרים.<br><em>מרגישים שלא הולך.</em></h2>
-    <div class="prob-grid">
-      <div class="prob rv">
-        <div class="prob-idx">01</div>
-        <h3>אין תכנית אמיתית</h3>
-        <p>זזים הרבה, בלי כיוון. מכשיר אחרי מכשיר, כיתה אחרי כיתה — בלי הבנה מה הגוף צריך באמת.</p>
+    <div class="eyebrow"><span class="bar"></span><span>FIG. 01 — הפילוסופיה</span></div>
+    <h2 class="rv">לא אסתטיקה.<br><em>גוף שיעבוד בגיל 70.</em></h2>
+    <p class="lead rv rv-d1">המחקר ברור: מה שמחזיק בני אדם מתפקדים לאורך עשרות שנים זה שריר, לב חזק, מפרקים בריאים, ויכולת תנועה. לא "לרדת 5 קילו". יניב מאמן בדיוק לשם.</p>
+    <div class="phil-grid rv rv-d2">
+      <div class="phil-card">
+        <div class="phil-num">01 / SCIENCE</div>
+        <h3>מדע, לא טרנדים</h3>
+        <p>Peter Attia, Andrew Huberman, מחקרים עדכניים — כל תרגיל שיניב מלמד יש לו סיבה מדעית. לא "ראיתי ביוטיוב".</p>
       </div>
-      <div class="prob rv rv-d1">
-        <div class="prob-idx">02</div>
-        <h3>אין ידע, אין ביטחון</h3>
-        <p>בלי בסיס — קשה לדעת אם מבצעים נכון, כמה עומס, ואיך להתקדם. אנשים נשארים תקועים.</p>
+      <div class="phil-card">
+        <div class="phil-num">02 / PERSONAL</div>
+        <h3>גוף שלך, תוכנית שלך</h3>
+        <p>אין תכנית גנרית. הכל מותאם למגבלות שלך, למטרות שלך, ולחיים שלך. כולל תרגילים מתקנים מעולם הספורטתרפיה.</p>
       </div>
-      <div class="prob rv rv-d2">
-        <div class="prob-idx">03</div>
-        <h3>פציעות חוזרות</h3>
-        <p>אימון גנרי על גוף ספציפי = עומס לא נכון על מפרקים, גב ועמוד שדרה.</p>
+      <div class="phil-card">
+        <div class="phil-num">03 / INDEPENDENCE</div>
+        <h3>עצמאות, לא תלות</h3>
+        <p>בסוף כל חבילה — יש לך ידע, כלים ותוכנית. לא תלוי במאמן כדי להמשיך. זו המטרה האמיתית.</p>
       </div>
-      <div class="prob rv rv-d3">
-        <div class="prob-idx">04</div>
-        <h3>מוטיבציה שנגמרת</h3>
-        <p>בלי מטרה ובלי תכנית שמתאימה לחיים — קשה להמשיך. זה לא חולשה, זה חוסר מבנה.</p>
+      <div class="phil-card">
+        <div class="phil-num">04 / LONGEVITY</div>
+        <h3>כל החיים, לא עונה</h3>
+        <p>שריר, צפיפות עצם, סיבולת לב-ריאה — הדברים שמחזיקים אותך מתפקד/ת בגיל 70, 80, 90.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PACKAGES -->
+<!-- PACKAGES / 3 PROGRAMS -->
 <section class="packages" id="packages">
   <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 03 — שלושה מסלולים</span></div>
+    <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 02 — שלושה מסלולים</span></div>
     <h2 class="rv" style="color:var(--bone)">בחרו את הדרך<br><em>שמתאימה לכם.</em></h2>
     <p class="lead rv rv-d1">שלוש חבילות — צורך אחר, אבל אותם עקרונות: תנועה נכונה, ידע אמיתי, ותוצאות לטווח ארוך.</p>
 
     <div class="pkg-stack">
+
+      <!-- ── PACKAGE 01: GYM ── -->
       <article class="pkg rv">
-        <div class="pkg-num">PACKAGE / 01<small>STRENGTH</small></div>
-        <div>
-          <h2 class="pkg-title">כוח זה longevity —<br><em>מתחילים נכון.</em></h2>
-          <p class="pkg-tagline">המחקר ברור: אימוני כוח הם אחד הדברים הכי חשובים לאריכות חיים. אם עדיין לא מתאמן/ת בצורה מסודרת בחדר כושר — זה בדיוק בשבילך. ~10 מפגשים, מ-0 לעצמאות מלאה.</p>
-        </div>
-        <ul class="pkg-list">
-          <li>מיועד למי שמתחיל/ה מ-0 — ניסיון קודם לא נדרש</li>
-          <li>אימון ראשון אצלך בבית, ללא ציוד</li>
-          <li>מעבר הדרגתי לחדר כושר (זינת׳ ברבל, ת״א)</li>
-          <li>לימוד כל התרגילים הבסיסיים — נכון, בטוח, עצמאי</li>
-          <li>בניית שריר, כוח וצפיפות עצם לטווח ארוך</li>
-        </ul>
-        <div class="pkg-meta">
-          <div class="pkg-meta-row"><span class="k">Location</span><span class="v">בית · ואז זינת׳ ברבל, ת״א</span></div>
-          <div class="pkg-meta-row"><span class="k">Equipment</span><span class="v">ללא ציוד נוסף</span></div>
-          <div class="pkg-meta-row"><span class="k">Sessions</span><span class="v">~10 מפגשים</span></div>
+        <div class="pkg-num">PACKAGE / 01<small>חדר כושר</small></div>
+        <div class="pkg-body">
+          <h2 class="pkg-title">תלמד אותי להתאמן<br><em>בחדר כושר.</em></h2>
+          <p class="pkg-intro">
+            רוצים להתאמן בעצמאות וביטחון בחדר כושר? לפתח שריר וכוח? לפתח התנגדות לאינסולין (כן אתם רוצים!) לשמר מסת שריר ועצם לשנים קדימה? להיות מסוגלים לזוז בנוחות ולהרים כל מה שצריך להרים? זו התוכנית בשבילכם (:
+          </p>
+          <div class="pkg-two-col">
+            <div>
+              <span class="pkg-col-label">מה יועבר במפגשים?</span>
+              <ul class="pkg-col-list">
+                <li>לימוד עקרונות האימון</li>
+                <li>מנחים נכונים</li>
+                <li>התאמת התרגילים למטרות המתאמן</li>
+                <li>התאמת התרגילים למגבלות המתאמן ומציאת תרגילים אלטרנטיבים</li>
+                <li>תרגילים "מתקנים" למגבלות המתאמן מעולם הספורטתרפיה</li>
+                <li>עבודה על שימור צפיפות עצם וכוח מתפרץ אשר "נאבדים" החל מגיל 35</li>
+                <li>עבודת מוביליטי לבית או למשרד לשמירה על טווחים ולבריאות מפרקים ועמוד שדרה</li>
+              </ul>
+              <p class="pkg-note">הערות נוספות – אימון ראשון בבית המתאמן, אימונים נוספים בחדר כושר</p>
+            </div>
+            <div>
+              <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
+              <ul class="pkg-col-list">
+                <li>ראייה שמטרתה לגרום לגוף שלכם לשרת אתכם שנים קדימה בהיבטים של טווח תנועה, פונקציונליות, ומניעת פציעות</li>
+                <li>המלצות על תזונה תומכת ביצועי גוף ומוח</li>
+                <li>ארסנל תרגילים למתן מענה למגבלות שונות</li>
+                <li>זיהוי מגבלות אימון ומתן מענה עם תרגילים מתקנים מעולם הספורטתרפיה</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pkg-clarif">
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
+              <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. יתר המפגשים מבוצעים בחדר הכושר זינת׳ ברבל, התושיה 20 תל אביב.</p>
+            </div>
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
+              <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
+            </div>
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">יש צורך בציוד נוסף?</span>
+              <p class="pkg-clarif-a">לא.</p>
+            </div>
+          </div>
           <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת חדר הכושר" class="pkg-cta">לחבילה זו ←</a>
         </div>
       </article>
 
+      <!-- ── PACKAGE 02: AEROBIC ── -->
       <article class="pkg rv rv-d1">
-        <div class="pkg-num">PACKAGE / 02<small>AEROBIC + COLD</small></div>
-        <div>
-          <h2 class="pkg-title">כוח, אירובי,<br><em>וחשיפה לקור.</em></h2>
-          <p class="pkg-tagline">חבילת longevity מלאה: אימוני כוח, Zone 2 אירובי, וחשיפה מבוקרת לקור — שלושת הרכיבים שבונים גוף לטווח ארוך.</p>
-        </div>
-        <ul class="pkg-list">
-          <li>אימוני כוח — שריר, יציבות, מנחים נכונים</li>
-          <li>תכנית Zone 2 אירובי — לפי רמה ומטרה</li>
-          <li>חשיפה לקור — cold plunge, נשימות, חוסן</li>
-          <li>שילוב מסונכרן של שלושת הרכיבים</li>
-          <li>תכנית שבועית מותאמת לחיים שלך</li>
-        </ul>
-        <div class="pkg-meta">
-          <div class="pkg-meta-row"><span class="k">Location</span><span class="v">בית · מיקום גמיש</span></div>
-          <div class="pkg-meta-row"><span class="k">Equipment</span><span class="v">שעון דופק (יש פתרון)</span></div>
-          <div class="pkg-meta-row"><span class="k">After</span><span class="v">תכנית עבודה + קו פתוח</span></div>
+        <div class="pkg-num">PACKAGE / 02<small>אירובי</small></div>
+        <div class="pkg-body">
+          <h2 class="pkg-title">תלמד אותי לטובת יכולת<br><em>אירובית ואנאירובית.</em></h2>
+          <p class="pkg-intro">
+            רוצים לרוץ בקלילות? להיות חדי מחשבה? לשפר את המערכת הקרדיווסקולארית שלכם? לעשות טראק בטבע מבלי לנקוע קרסול? להיות עם מספיק סיבולת כדי לרקוד, לריב ולעשות אהבה? זו התוכנית בשבילכם (:
+          </p>
+          <div class="pkg-two-col">
+            <div>
+              <span class="pkg-col-label">מה יועבר במפגשים?</span>
+              <ul class="pkg-col-list">
+                <li>תוכנית אימוני zone 2 cardio לחיזוק המערכת הקרדיווסקולרית (במסגרתה נציב מטרה ריאלית למרחק ריצה)</li>
+                <li>אימוני אירובי לטובת חדות חשיבה ואריכות ימים</li>
+                <li>אימוני התנגדות לחיזוק שרירים תומכי ריצה והליכה בשטח</li>
+                <li>תרגול יציבות ומניעת פציעות ריצה</li>
+                <li>חיזוק כף הרגל</li>
+                <li>תרגול נשימות לטובת ריכוז וחיוניות</li>
+                <li>תרגול חשיפה לקור לרענון מערכת הדופמין</li>
+                <li>תרגול קואורדינציה ופרופריוספציה לשליטה בגוף</li>
+              </ul>
+            </div>
+            <div>
+              <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
+              <ul class="pkg-col-list">
+                <li>אני מגיע מרקע של אימוני כוח וגם מרקע של אירובי, ויודע לגבות את הריצה באימוני כוח הולמים.</li>
+                <li>ההעמקה שלי בספורטתרפיה מאפשרת לי לזהות בעיות תנועה ולתת מענה הולם ולמנוע פציעות.</li>
+                <li>בתור מישהו עם מבנה גוף די "כבד" אני יודע להתאים את תוכנית הריצה בהדרגה ולהימנע מבעיות כרוניות.</li>
+                <li>ההעמקה שלי בתרגילי נשימה תתן לכם עוד כלי להתמודד עם קשיים באימונים וביום יום.</li>
+                <li>כל אימון שאני עושה הוא מבוסס מחקר ובקצה – יש לו מטרה ברורה ומוגדרת היטב.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pkg-clarif">
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
+              <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. יתר המפגשים מבוצעים בחדר הכושר זינת׳ ברבל, התושיה 20 תל אביב. (אם המיקום לא מתאים יבחנו מיקומים נוספים לפי צורך)</p>
+            </div>
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
+              <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
+            </div>
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">יש צורך בציוד נוסף?</span>
+              <p class="pkg-clarif-a">כן – שעון דופק. במידה ואין, ניתן למצוא פתרון.</p>
+            </div>
+          </div>
           <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת האירובי" class="pkg-cta">לחבילה זו ←</a>
         </div>
       </article>
 
+      <!-- ── PACKAGE 03: HOME ── -->
       <article class="pkg rv rv-d2">
-        <div class="pkg-num">PACKAGE / 03<small>OUTDOOR · TRAIL</small></div>
-        <div>
-          <h2 class="pkg-title">שטח, פארק,<br><em>ואוויר טרי.</em></h2>
-          <p class="pkg-tagline">אימון בחוץ — פארק, שביל, מינימום ציוד. כוח, כושר לב-ריאה, וחיבור לגוף על קרקע אמיתית.</p>
-        </div>
-        <ul class="pkg-list">
-          <li>אימוני כוח בפארק ובמתקנים ציבוריים</li>
-          <li>שילוב אירובי — הליכה, ריצה, שטח</li>
-          <li>טרקים ושבילים — הגוף במרחב אמיתי</li>
-          <li>מינימום ציוד · מקסימום תנועה</li>
-          <li>מנחים נכונים ותרגילים פונקציונליים</li>
-        </ul>
-        <div class="pkg-meta">
-          <div class="pkg-meta-row"><span class="k">Location</span><span class="v">בית · פארק · שביל</span></div>
-          <div class="pkg-meta-row"><span class="k">Equipment</span><span class="v">בסיום: עזרה ברכישה (250–400₪)</span></div>
-          <div class="pkg-meta-row"><span class="k">After</span><span class="v">תכנית עבודה + קו פתוח</span></div>
+        <div class="pkg-num">PACKAGE / 03<small>ליד הבית</small></div>
+        <div class="pkg-body">
+          <h2 class="pkg-title">תלמד אותי להתאמן ליד הבית<br><em>עם ציוד מינימלי.</em></h2>
+          <p class="pkg-intro">
+            רוצים להתאמן קרוב לבית, גם כשחדר הכושר סגור? לפתח שריר וכוח ולשרוף שומן?<br>
+            האמת שאפשר להגיע די רחוק עם כמה אביזרים בודדים.
+          </p>
+          <div class="pkg-two-col">
+            <div>
+              <span class="pkg-col-label">מה יועבר במפגשים?</span>
+              <ul class="pkg-col-list">
+                <li>מנחים נכונים לעבודה עם ובלי משקל</li>
+                <li>מיומנויות קטלבל – כוח, אירובי, כוח מתפרץ, קואורדינציה</li>
+                <li>תרגילי כוח במתקנים ציבוריים או ללא מתקנים בכלל</li>
+                <li>כיצד לשלב אירובי באימוני כוח מבלי לרוץ</li>
+                <li>עבודה על צפיפות עצם</li>
+              </ul>
+            </div>
+            <div>
+              <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
+              <ul class="pkg-col-list">
+                <li>מאמנים שמתרכזים בקליסטניקס ולא עובדים על אירובי / כוח מתפרץ / צפיפות עצם – חוטאים בכך שהמתאמנים שלהם מאבדים את היכולות האלה, למרות שהם עושים אימוני כוח.</li>
+                <li>עבודה עם קטלבל משלבת אלמנטים רבים של כושר, אבל הקואורדינציה והתנועתיות שהיא מצריכה הופכת את הכלי הזה לכלי עם עומק שרוצים להתאמן איתו שנים קדימה.</li>
+                <li>ההעמקה שלי בספורטתרפיה מאפשרת לי לזהות בעיות תנועה ולתת מענה הולם ולמנוע פציעות.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pkg-clarif">
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
+              <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. השני והלאה בפארק קרוב לבית.</p>
+            </div>
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
+              <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
+            </div>
+            <div class="pkg-clarif-cell">
+              <span class="pkg-clarif-q">האם יש צורך בציוד נוסף?</span>
+              <p class="pkg-clarif-a">בתום חבילת האימונים, אעזור ברכישת הציוד הרלוונטי במחיר נמוך יחסית. טווח העלות הוא בין 250–400 ₪. (יש אפשרות להוזלה נוספת ע"י רכישת ציוד משומש ותקני).</p>
+            </div>
+          </div>
           <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת אימוני הבית" class="pkg-cta">לחבילה זו ←</a>
         </div>
       </article>
-    </div>
+
+    </div><!-- /pkg-stack -->
 
     <div class="video-showcase rv">
-      <video autoplay muted loop playsinline
-             src="lunges.mp4"></video>
+      <video autoplay muted loop playsinline src="lunges.mp4"></video>
       <div class="video-label">REAL TRAINING · LUNGES · FUNCTIONAL MOVEMENT</div>
     </div>
   </div>
@@ -765,7 +713,7 @@ footer{
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span>FIG. 04 — מי זה יניב</span></div>
+    <div class="eyebrow"><span class="bar"></span><span>FIG. 03 — מי זה יניב</span></div>
     <h2 class="rv">מאמן שגם הולך<br>ומדבר את <em>הדיבור.</em></h2>
     <div class="about-grid">
       <div class="about-photos rv">
@@ -794,7 +742,7 @@ footer{
 <section class="elements">
   <video class="section-bg-video" autoplay muted loop playsinline src="14828390_1920_1080_30fps.mp4"></video>
   <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 05 — איפה הגוף נבנה</span></div>
+    <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 04 — איפה הגוף נבנה</span></div>
     <h2 class="rv" style="color:var(--bone);max-width:22ch">לא רק בחדר כושר.<br><em>הגוף נבנה ביסודות.</em></h2>
     <div class="el-grid">
       <div class="el rv">
@@ -825,51 +773,10 @@ footer{
   </div>
 </section>
 
-<!-- INCLUDED -->
-<section class="included">
-  <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span>FIG. 06 — מה כלול בכל חבילה</span></div>
-    <h2 class="rv">בכל מסלול —<br><em>אותה רמת ליווי.</em></h2>
-    <p class="lead rv rv-d1">כל שלוש החבילות כוללות ליווי מלא, הדרכה, תכנון שבועי ותכנית לאחר הסיום. ההבדל הוא רק בתחום ובמיקום.</p>
-    <div class="inc-grid">
-      <div class="inc rv">
-        <div class="inc-num">INC / 01</div>
-        <h3>ליווי לאורך כל האימונים</h3>
-        <p>יניב נוכח, מתקן ומכוון בכל מפגש. לא רק "תעשה את זה" — אלא הבנה של למה ואיך.</p>
-      </div>
-      <div class="inc rv rv-d1">
-        <div class="inc-num">INC / 02</div>
-        <h3>הדרכת ביצוע תרגילים</h3>
-        <p>כל תרגיל נלמד לעומק — מנח, כיוון, עומס. כך שבסיום תוכל/י לבצע לבד, נכון ובטוח.</p>
-      </div>
-      <div class="inc rv rv-d2">
-        <div class="inc-num">INC / 03</div>
-        <h3>תכנית שבועית מתעדכנת</h3>
-        <p>לא תכנית אחת לכל הסדרה. התכנית מתאימה את עצמה לקצב שלך, לעומס ולמה שעובד.</p>
-      </div>
-      <div class="inc rv">
-        <div class="inc-num">INC / 04</div>
-        <h3>וידאואים לחזרה עצמית</h3>
-        <p>סרטוני הסבר לתרגילים — כך שתוכל/י לחזור, לתרגל ולהיזכר גם בין הפגישות.</p>
-      </div>
-      <div class="inc rv rv-d1">
-        <div class="inc-num">INC / 05</div>
-        <h3>קו פתוח גם אחרי הסיום</h3>
-        <p>יניב זמין לשאלות, תיקונים ועדכוני תכנית גם לאחר שהחבילה הסתיימה רשמית.</p>
-      </div>
-      <div class="inc rv rv-d2">
-        <div class="inc-num">INC / 06</div>
-        <h3>תכנית עצמאית לסיום</h3>
-        <p>מסיימים עם תכנית עבודה מסודרת — לא תלויים במאמן כדי להמשיך להתקדם.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- TESTIMONY -->
 <div class="testimony">
   <div class="inner">
-    <div class="test-eyebrow"><span class="bar"></span><span>FIG. 07 — לקוחה</span></div>
+    <div class="test-eyebrow"><span class="bar"></span><span>FIG. 05 — לקוחה</span></div>
     <p class="test-quote rv">
       ״תמיד ידעתי את החוקים הכלליים של קלוריות והוצאת אנרגיה — אבל זה לא קרוב למה שאני יודעת ומסוגלת עכשיו. בחיים לא חשבתי שאאהב ככה להתאמן. התחושה היא שחזרתי 15 שנה אחורה. בעצם — <span class="strong">מעולם לא הייתי חזקה ככה.</span>״
     </p>
@@ -880,96 +787,7 @@ footer{
   </div>
 </div>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span>FIG. 08 — השוואת מסלולים</span></div>
-    <h2 class="rv">שלושה מסלולים,<br><em>עיקרון אחד.</em></h2>
-    <p class="lead rv rv-d1">לפרטים ולמחירים — בואו נדבר. שיחת היכרות 20 דקות, ללא מחויבות.</p>
-    <div class="price-table">
-      <div class="price-cell head">
-        <div class="ehd">COMPARISON</div>
-        <div class="et">כולן כוללות ליווי מלא, תכנית שבועית, וידאואים ועצמאות בסיום.</div>
-      </div>
-      <div class="price-cell rv">
-        <div class="pkn">PACKAGE 01</div>
-        <div class="pkt">חדר כושר — עצמאות מלאה</div>
-        <ul style="margin-top:18px">
-          <li>~10 מפגשים, מ-0 לחדר כושר</li>
-          <li>אימון ראשון בבית</li>
-          <li>ממשיכים בזינת׳ ברבל, ת״א</li>
-          <li>ללא ציוד נוסף</li>
-          <li>המלצות תזונה</li>
-        </ul>
-        <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת חדר הכושר" class="pkc">לפרטים ←</a>
-      </div>
-      <div class="price-cell rv rv-d1">
-        <div class="pkn">PACKAGE 02</div>
-        <div class="pkt">כוח + אירובי + קור</div>
-        <ul style="margin-top:18px">
-          <li>אימוני כוח + Zone 2 + cold plunge</li>
-          <li>פרוטוקול longevity מלא</li>
-          <li>מיקום גמיש</li>
-          <li>שעון דופק (יש פתרון)</li>
-          <li>המלצות תזונה</li>
-        </ul>
-        <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת האירובי" class="pkc">לפרטים ←</a>
-      </div>
-      <div class="price-cell rv rv-d2">
-        <div class="pkn">PACKAGE 03</div>
-        <div class="pkt">שטח, פארק ואוויר טרי</div>
-        <ul style="margin-top:18px">
-          <li>אימון בחוץ — פארק, שביל, שטח</li>
-          <li>ציוד מינימלי</li>
-          <li>שילוב אירובי וכוח</li>
-          <li>עזרה ברכישת ציוד בסיום (250–400₪)</li>
-          <li>המלצות תזונה</li>
-        </ul>
-        <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת אימוני הבית" class="pkc">לפרטים ←</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span>FIG. 09 — שאלות נפוצות</span></div>
-    <h2 class="rv">שאלות שנשאלות,<br><em>תשובות ישירות.</em></h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q"><span class="idx">01</span><span class="qt">מה ההבדל בין החבילות?</span><span class="pm">+</span></button>
-        <div class="faq-a">כל חבילה ממוקדת בסוג אחר של כושר: 01 לבניית שריר בחדר כושר, 02 לסיבולת ואירובי, 03 לאימון ליד הבית עם ציוד מינימלי. כולן מסתיימות בתכנית עבודה ובקו פתוח.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span class="idx">02</span><span class="qt">האם אני צריך/ה ניסיון מוקדם?</span><span class="pm">+</span></button>
-        <div class="faq-a">בכלל לא. כל החבילות בנויות לאנשים שמתחילים מ-0. יניב מתחיל מהבסיסים — אצלך בבית, ללא ציוד מיוחד.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span class="idx">03</span><span class="qt">היכן מתקיימים האימונים?</span><span class="pm">+</span></button>
-        <div class="faq-a">האימון הראשון תמיד אצלך בבית. חבילה 01 ממשיכה בחדר כושר זינת׳ ברבל, ת״א. חבילה 02 גמישה במיקום. חבילה 03 ממשיכה בפארק קרוב לבית.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span class="idx">04</span><span class="qt">מה קורה אחרי שהחבילה מסתיימת?</span><span class="pm">+</span></button>
-        <div class="faq-a">מקבלים תכנית עבודה מסודרת קדימה וקו פתוח להתייעצויות. יניב זמין לשאלות, לתיקונים ולעדכוני תכנית.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span class="idx">05</span><span class="qt">האם יש צורך בציוד מיוחד?</span><span class="pm">+</span></button>
-        <div class="faq-a">חבילה 01: ללא ציוד נוסף. חבילה 02: שעון דופק (יש פתרון אם אין). חבילה 03: בסיום, יניב יעזור לרכוש ציוד מינימלי במחיר 250–400 ₪.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span class="idx">06</span><span class="qt">האם כוללת ייעוץ תזונה?</span><span class="pm">+</span></button>
-        <div class="faq-a">לא ייעוץ דיאטני רשמי, אבל כן: המלצות תזונה תומכות גוף ומוח, פרוטוקול חלבון והמלצות תוספים — מה שעובד בפועל.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q"><span class="idx">07</span><span class="qt">אפשר לשלם בתשלומים?</span><span class="pm">+</span></button>
-        <div class="faq-a">כן. ניתן לפרוס תשלומים — הפרטים בתיאום ישיר עם יניב.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL -->
+<!-- FINAL CTA -->
 <section class="final">
   <video class="section-bg-video" autoplay muted loop playsinline src="13154055_1080_1920_30fps.mp4"></video>
   <div class="inner">
@@ -990,7 +808,7 @@ footer{
       <p>The Vital Human Method. אימון אישי מבוסס מדע — חדר כושר, אירובי, וטבע. תל אביב.</p>
     </div>
     <div class="foot-col">
-      <h4>חבילות</h4>
+      <h4>מסלולים</h4>
       <ul>
         <li><a href="#packages">01 · חדר כושר</a></li>
         <li><a href="#packages">02 · אירובי</a></li>
@@ -1021,18 +839,18 @@ footer{
 <script>
 const obs = new IntersectionObserver(
   es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('in') }),
-  { threshold:0.12, rootMargin:'0px 0px -40px 0px' }
+  { threshold:0.08, rootMargin:'0px 0px -40px 0px' }
 );
 document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
-document.querySelectorAll('.faq-q').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item = btn.closest('.faq-item');
-    const open = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if(!open) item.classList.add('open');
-  });
-});
+const videos = document.querySelectorAll('video');
+const tryPlay = v => v.play().catch(()=>{});
+videos.forEach(v => tryPlay(v));
+const vidObs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting) tryPlay(e.target); else e.target.pause(); });
+},{ threshold:0.15 });
+videos.forEach(v => vidObs.observe(v));
+document.addEventListener('touchstart', () => videos.forEach(v => tryPlay(v)), {once:true});
 </script>
 </body>
 </html>
