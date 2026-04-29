@@ -418,39 +418,96 @@ footer{
   text-transform:uppercase;
 }
 
+/* ── Marquee ── */
+.marquee{background:var(--ember);padding:13px 0;overflow:hidden}
+.marquee-track{display:flex;gap:50px;white-space:nowrap;animation:marquee-anim 22s linear infinite}
+.marquee-track span{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.22em;color:var(--bone);flex-shrink:0;text-transform:uppercase}
+@keyframes marquee-anim{to{transform:translateX(-50%)}}
+
+/* ── Hero scroll hint ── */
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-ring{
+  width:30px;height:30px;border:1px solid rgba(255,255,255,.18);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  animation:bounce-hint 2s ease-in-out infinite;
+}
+.scroll-ring svg{width:12px;height:12px;stroke:rgba(255,255,255,.35);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@keyframes bounce-hint{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.scroll-text-sm{font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.2);letter-spacing:.18em;text-transform:uppercase}
+
+/* ── Program selector tabs ── */
+.packages{padding:0}
+.pkg-header{padding:96px 48px 52px;position:relative;z-index:2}
+.pkg-header-inner{max-width:1200px;margin:0 auto}
+.prog-selector{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--hair-d);
+  position:relative;z-index:2;
+}
+.prog-tab-btn{
+  background:none;border:none;cursor:pointer;
+  padding:30px 48px;text-align:right;direction:rtl;
+  border-inline-start:1px solid var(--hair-d);
+  position:relative;
+  transition:background .3s var(--ease);
+}
+.prog-tab-btn:first-child{border-inline-start:none}
+.prog-tab-btn::after{
+  content:'';position:absolute;inset-block-end:0;inset-inline:0;
+  height:2px;background:var(--ember);
+  transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.prog-tab-btn.active{background:rgba(194,90,42,.07)}
+.prog-tab-btn.active::after{transform:scaleX(1)}
+.prog-tab-btn:hover:not(.active){background:rgba(255,255,255,.03)}
+.tab-num{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;color:var(--ember);display:block;margin-bottom:10px}
+.tab-title{font-family:var(--sans);font-size:clamp(.86rem,1.4vw,.98rem);font-weight:600;color:var(--bone);line-height:1.35;display:block;margin-bottom:6px}
+.tab-sub{font-family:var(--mono);font-size:.68rem;color:var(--ash);display:block;letter-spacing:.1em}
+
+/* ── Program content panels ── */
+.prog-panel{display:none;position:relative;z-index:2}
+.prog-panel.active{display:block}
+.prog-panel-wrap{max-width:1200px;margin:0 auto;padding:60px 48px 96px}
+
 /* ── Responsive ── */
 @media (max-width:980px){
-  .hero-band{grid-template-columns:repeat(2,1fr)}
-  .hero-band .cell:nth-child(3){border-inline-start:none;border-top:1px solid var(--hair-d)}
-  .hero-band .cell:nth-child(4){border-top:1px solid var(--hair-d)}
   .el-grid{grid-template-columns:repeat(2,1fr)}
   .pkg{grid-template-columns:80px 1fr;gap:28px}
   .pkg-two-col{grid-template-columns:1fr;gap:24px}
   .pkg-clarif{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr;gap:48px}
-  .phil-grid{grid-template-columns:repeat(2,1fr)}
+  .prog-selector{grid-template-columns:1fr}
+  .prog-tab-btn{border-inline-start:none;border-top:1px solid var(--hair-d);padding:22px 32px}
+  .prog-tab-btn:first-child{border-top:none}
   .foot{grid-template-columns:1fr 1fr;gap:32px}
+  .pkg-header{padding:72px 32px 40px}
+  .prog-panel-wrap{padding:40px 32px 72px}
 }
 @media (max-width:640px){
   section,.elements,.final{padding:80px 24px}
-  .hero-content{padding:0 24px 48px}
+  .hero-content{padding:0 24px 56px}
   nav{padding:0 20px}
-  .hero-band{grid-template-columns:1fr}
   .pkg{grid-template-columns:1fr;gap:20px}
   .pkg-clarif{grid-template-columns:1fr}
   .el-grid{grid-template-columns:1fr}
-  .phil-grid{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
   .foot-bot{flex-direction:column;gap:8px;align-items:flex-start}
   .hero-actions{flex-direction:column;align-items:flex-start}
   .video-showcase video{max-height:260px}
   .about-photos{grid-template-columns:1fr}
   .photo-tall{aspect-ratio:4/3;grid-row:auto}
+  .pkg-header{padding:60px 24px 32px}
+  .prog-panel-wrap{padding:32px 24px 60px}
+  .prog-tab-btn{padding:18px 24px}
 }
 @media (max-width:480px){
   .nav-cta{padding:8px 14px;font-size:.66rem;letter-spacing:.1em}
   section,.elements,.final{padding:64px 20px}
-  .hero-content{padding:0 20px 40px}
+  .hero-content{padding:0 20px 48px}
   nav{padding:0 16px}
 }
 </style>
@@ -483,77 +540,69 @@ footer{
       <span class="strong">מתחילים עכשיו.</span>
     </h1>
     <p class="hero-sub">
-      שלוש דרכים להתאמן עם יניב — חדר כושר, אירובי בטבע, או ליד הבית.
-      כולן בנויות על מדע longevity, תנועה אמיתית, וכלים שנשארים איתך לכל החיים.
+      שלושה מסלולי אימון. כל אחד בנוי בקפידה לטובת בריאות, כוח וחיוניות לשנים קדימה.
     </p>
     <div class="hero-actions">
       <a href="#packages" class="btn-ember">
-        <span>בחרו מסלול</span><span>↓</span>
+        <span>לבחירת מסלול</span><span>↓</span>
       </a>
       <a href="https://wa.me/972523308211?text=היי יניב" class="btn-ghost-d">שיחת היכרות · 20 דק׳</a>
     </div>
   </div>
+  <div class="hero-scroll">
+    <div class="scroll-ring">
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <span class="scroll-text-sm">גלול</span>
+  </div>
 </section>
-<div class="hero-band">
-  <div class="cell">
-    <div class="hb-label">METHOD</div>
-    <div class="hb-val">The Vital Human</div>
-  </div>
-  <div class="cell">
-    <div class="hb-label">FOCUS</div>
-    <div class="hb-val">Longevity · Strength</div>
-  </div>
-  <div class="cell">
-    <div class="hb-label">CERT</div>
-    <div class="hb-val">Wingate · 2019</div>
-  </div>
-  <div class="cell">
-    <div class="hb-label">FIELD</div>
-    <div class="hb-val">Gym · Trail · Cold</div>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>VITALITY LAB</span><span>THE VITAL HUMAN METHOD</span>
+    <span>חדר כושר · ריצה · ציוד מינימלי</span><span>WINGATE CERTIFIED</span>
+    <span>VITALITY LAB</span><span>THE VITAL HUMAN METHOD</span>
+    <span>חדר כושר · ריצה · ציוד מינימלי</span><span>WINGATE CERTIFIED</span>
+    <span>VITALITY LAB</span><span>THE VITAL HUMAN METHOD</span>
+    <span>חדר כושר · ריצה · ציוד מינימלי</span><span>WINGATE CERTIFIED</span>
   </div>
 </div>
 
-<!-- PHILOSOPHY / LONGEVITY INTRO -->
-<section class="philosophy" id="philosophy">
-  <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span>FIG. 01 — הפילוסופיה</span></div>
-    <h2 class="rv">לא אסתטיקה.<br><em>גוף שיעבוד בגיל 70.</em></h2>
-    <p class="lead rv rv-d1">המחקר ברור: מה שמחזיק בני אדם מתפקדים לאורך עשרות שנים זה שריר, לב חזק, מפרקים בריאים, ויכולת תנועה. לא "לרדת 5 קילו". יניב מאמן בדיוק לשם.</p>
-    <div class="phil-grid rv rv-d2">
-      <div class="phil-card">
-        <div class="phil-num">01 / SCIENCE</div>
-        <h3>מדע, לא טרנדים</h3>
-        <p>Peter Attia, Andrew Huberman, מחקרים עדכניים — כל תרגיל שיניב מלמד יש לו סיבה מדעית. לא "ראיתי ביוטיוב".</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-num">02 / PERSONAL</div>
-        <h3>גוף שלך, תוכנית שלך</h3>
-        <p>אין תכנית גנרית. הכל מותאם למגבלות שלך, למטרות שלך, ולחיים שלך. כולל תרגילים מתקנים מעולם הספורטתרפיה.</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-num">03 / INDEPENDENCE</div>
-        <h3>עצמאות, לא תלות</h3>
-        <p>בסוף כל חבילה — יש לך ידע, כלים ותוכנית. לא תלוי במאמן כדי להמשיך. זו המטרה האמיתית.</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-num">04 / LONGEVITY</div>
-        <h3>כל החיים, לא עונה</h3>
-        <p>שריר, צפיפות עצם, סיבולת לב-ריאה — הדברים שמחזיקים אותך מתפקד/ת בגיל 70, 80, 90.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PACKAGES / 3 PROGRAMS -->
 <section class="packages" id="packages">
-  <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 02 — שלושה מסלולים</span></div>
-    <h2 class="rv" style="color:var(--bone)">בחרו את הדרך<br><em>שמתאימה לכם.</em></h2>
-    <p class="lead rv rv-d1">שלוש חבילות — צורך אחר, אבל אותם עקרונות: תנועה נכונה, ידע אמיתי, ותוצאות לטווח ארוך.</p>
 
-    <div class="pkg-stack">
+  <!-- Section header -->
+  <div class="pkg-header">
+    <div class="pkg-header-inner">
+      <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 01 — שלושה מסלולים</span></div>
+      <h2 class="rv" style="color:var(--bone)">בחרו את הדרך<br><em>שמתאימה לכם.</em></h2>
+      <p class="lead rv rv-d1">שלוש חבילות — צורך אחר, אבל אותם עקרונות: תנועה נכונה, ידע אמיתי, ותוצאות לטווח ארוך.</p>
+    </div>
+  </div>
 
-      <!-- ── PACKAGE 01: GYM ── -->
+  <!-- Tab selector -->
+  <div class="prog-selector">
+    <button class="prog-tab-btn active rv" data-prog="prog-gym" onclick="showProgram('prog-gym')">
+      <span class="tab-num">01</span>
+      <span class="tab-title">תלמד אותי להתאמן בחדר כושר</span>
+      <span class="tab-sub">עצמאות · כוח · שריר</span>
+    </button>
+    <button class="prog-tab-btn rv rv-d1" data-prog="prog-cardio" onclick="showProgram('prog-cardio')">
+      <span class="tab-num">02</span>
+      <span class="tab-title">תלמד אותי לטובת יכולת אירובית ואנאירובית</span>
+      <span class="tab-sub">ריצה · סיבולת · חדות מחשבה</span>
+    </button>
+    <button class="prog-tab-btn rv rv-d2" data-prog="prog-home" onclick="showProgram('prog-home')">
+      <span class="tab-num">03</span>
+      <span class="tab-title">תלמד אותי להתאמן ליד הבית עם ציוד מינימלי</span>
+      <span class="tab-sub">קטלבל · פארק · בלי חדר כושר</span>
+    </button>
+  </div>
+
+  <!-- ── PANEL 01: GYM ── -->
+  <div id="prog-gym" class="prog-panel active">
+    <div class="prog-panel-wrap">
       <article class="pkg rv">
         <div class="pkg-num">PACKAGE / 01<small>חדר כושר</small></div>
         <div class="pkg-body">
@@ -602,9 +651,17 @@ footer{
           <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת חדר הכושר" class="pkg-cta">לחבילה זו ←</a>
         </div>
       </article>
+      <div class="video-showcase rv">
+        <video autoplay muted loop playsinline src="lunges.mp4"></video>
+        <div class="video-label">REAL TRAINING · LUNGES · FUNCTIONAL MOVEMENT</div>
+      </div>
+    </div>
+  </div><!-- /prog-gym -->
 
-      <!-- ── PACKAGE 02: AEROBIC ── -->
-      <article class="pkg rv rv-d1">
+  <!-- ── PANEL 02: AEROBIC ── -->
+  <div id="prog-cardio" class="prog-panel">
+    <div class="prog-panel-wrap">
+      <article class="pkg">
         <div class="pkg-num">PACKAGE / 02<small>אירובי</small></div>
         <div class="pkg-body">
           <h2 class="pkg-title">תלמד אותי לטובת יכולת<br><em>אירובית ואנאירובית.</em></h2>
@@ -653,9 +710,17 @@ footer{
           <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת האירובי" class="pkg-cta">לחבילה זו ←</a>
         </div>
       </article>
+      <div class="video-showcase">
+        <video autoplay muted loop playsinline src="gym.mp4"></video>
+        <div class="video-label">REAL TRAINING · AEROBIC · STRENGTH</div>
+      </div>
+    </div>
+  </div><!-- /prog-cardio -->
 
-      <!-- ── PACKAGE 03: HOME ── -->
-      <article class="pkg rv rv-d2">
+  <!-- ── PANEL 03: HOME ── -->
+  <div id="prog-home" class="prog-panel">
+    <div class="prog-panel-wrap">
+      <article class="pkg">
         <div class="pkg-num">PACKAGE / 03<small>ליד הבית</small></div>
         <div class="pkg-body">
           <h2 class="pkg-title">תלמד אותי להתאמן ליד הבית<br><em>עם ציוד מינימלי.</em></h2>
@@ -700,14 +765,13 @@ footer{
           <a href="https://wa.me/972523308211?text=היי יניב, אני מעוניין/ת בחבילת אימוני הבית" class="pkg-cta">לחבילה זו ←</a>
         </div>
       </article>
-
-    </div><!-- /pkg-stack -->
-
-    <div class="video-showcase rv">
-      <video autoplay muted loop playsinline src="lunges.mp4"></video>
-      <div class="video-label">REAL TRAINING · LUNGES · FUNCTIONAL MOVEMENT</div>
+      <div class="video-showcase">
+        <video autoplay muted loop playsinline src="cossack.mp4"></video>
+        <div class="video-label">REAL TRAINING · COSSACK SQUAT · MOBILITY</div>
+      </div>
     </div>
-  </div>
+  </div><!-- /prog-home -->
+
 </section>
 
 <!-- ABOUT -->
@@ -837,6 +901,19 @@ footer{
 </footer>
 
 <script>
+function showProgram(id) {
+  document.querySelectorAll('.prog-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.prog-tab-btn').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelector('[data-prog="' + id + '"]').classList.add('active');
+  // fire reveal on newly visible panel
+  document.querySelectorAll('#' + id + ' .rv').forEach(el => {
+    el.classList.remove('in'); void el.offsetWidth; el.classList.add('in');
+  });
+  // play video inside the newly visible panel
+  document.querySelectorAll('#' + id + ' video').forEach(v => v.play().catch(()=>{}));
+}
+
 const obs = new IntersectionObserver(
   es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('in') }),
   { threshold:0.08, rootMargin:'0px 0px -40px 0px' }
