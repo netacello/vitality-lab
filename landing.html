@@ -80,6 +80,7 @@ nav{
   padding:9px 20px;border-radius:2px;
   font-family:var(--mono);font-weight:600;font-size:.86rem;letter-spacing:.12em;
   text-decoration:none;text-transform:uppercase;
+  white-space:nowrap;
   transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s;
 }
 .nav-cta:hover{background:var(--ember);color:var(--bone);border-color:var(--ember);transform:translateY(-1px)}
@@ -350,8 +351,8 @@ h2 .strong{font-weight:700}
   display:flex;flex-direction:column;gap:8px;
 }
 .creds-list li{
-  font-family:var(--mono);font-size:.88rem;color:var(--ash-2);
-  letter-spacing:.06em;padding:10px 14px;
+  font-family:var(--sans);font-size:1.05rem;color:var(--basalt);
+  font-weight:700;letter-spacing:0;padding:10px 14px;
   border:1px solid var(--hair);background:rgba(226,222,212,.55);
   line-height:1.4;
 }
@@ -461,7 +462,9 @@ footer{
 @media (max-width:640px){
   section,.final{padding:80px 24px}
   .hero-content{padding:0 24px 56px}
-  nav{padding:0 20px}
+  nav{padding:0 20px;grid-template-columns:auto 1fr auto}
+  .nav-ig-center{justify-self:end}
+  .ig-label{display:none}
   .pkg{grid-template-columns:1fr;gap:20px}
   .pkg-clarif{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
@@ -553,7 +556,6 @@ footer{
   <!-- Section header -->
   <div class="pkg-header">
     <div class="pkg-header-inner">
-      <div class="eyebrow"><span class="bar"></span><span style="color:var(--ash)">FIG. 01 — שלושה מסלולים</span></div>
       <h2 class="rv" style="color:var(--bone)">בחרו את הדרך<br><em>שמתאימה לכם.</em></h2>
       <p class="lead rv rv-d1">שלוש חבילות — צורך אחר, אבל אותם עקרונות: תנועה נכונה, ידע אמיתי, ותוצאות לטווח ארוך.</p>
     </div>
@@ -770,7 +772,6 @@ footer{
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="inner">
-    <div class="eyebrow"><span class="bar"></span><span>FIG. 02 — מי זה יניב</span></div>
     <h2 class="rv">מאמן שגם הולך<br>ומדבר את <em>הדיבור.</em></h2>
     <div class="about-grid">
       <div class="about-photos rv">
@@ -794,7 +795,6 @@ footer{
 <!-- TESTIMONY -->
 <div class="testimony">
   <div class="inner">
-    <div class="test-eyebrow"><span class="bar"></span><span>FIG. 03 — לקוחה</span></div>
     <p class="test-quote rv">
       ״תמיד ידעתי את החוקים הכלליים של קלוריות והוצאת אנרגיה — אבל זה לא קרוב למה שאני יודעת ומסוגלת עכשיו. בחיים לא חשבתי שאאהב ככה להתאמן. התחושה היא שחזרתי 15 שנה אחורה. בעצם — <span class="strong">מעולם לא הייתי חזקה ככה.</span>״
     </p>
