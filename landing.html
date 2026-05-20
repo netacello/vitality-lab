@@ -189,35 +189,65 @@ h2 .strong{font-weight:700}
 .pkg-header{padding:96px 48px 52px;position:relative;z-index:2}
 .pkg-header-inner{max-width:1200px;margin:0 auto}
 
-/* ── Accordion ── */
-.prog-accordion{border-top:1px solid var(--hair-d);position:relative;z-index:2}
-.prog-item{border-bottom:1px solid var(--hair-d)}
-.prog-item-header{
-  width:100%;background:none;border:none;cursor:pointer;
-  padding:30px 48px;
-  display:flex;align-items:center;justify-content:space-between;
-  direction:rtl;text-align:right;
-  transition:background .3s var(--ease);
+/* ── Programs 3-card grid ── */
+.prog-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  padding:0 48px;
+  max-width:1200px;margin:0 auto;
+  position:relative;z-index:2;
 }
-.prog-item-header:hover{background:rgba(255,255,255,.04)}
-.prog-item.open>.prog-item-header{background:rgba(194,90,42,.07)}
-.prog-item-header-left{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
-.tab-num{font-family:var(--mono);font-size:.82rem;letter-spacing:.22em;color:var(--ember);display:block}
-.tab-title{font-family:var(--sans);font-size:clamp(1rem,1.8vw,1.12rem);font-weight:600;color:var(--bone);line-height:1.35;display:block}
-.prog-item-icon{
-  width:28px;height:28px;border:1px solid rgba(237,234,227,.2);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  transition:border-color .3s;
+.prog-card-btn{
+  background:rgba(14,18,22,.86);
+  border:2px solid rgba(237,234,227,.16);
+  padding:36px 28px 28px;
+  cursor:pointer;text-align:right;direction:rtl;
+  display:flex;flex-direction:column;
+  transition:border-color .3s var(--ease),background .3s var(--ease);
+  position:relative;overflow:hidden;
 }
-.prog-item-icon svg{
-  width:12px;height:12px;stroke:var(--ash);fill:none;stroke-width:1.8;
+.prog-card-btn::after{
+  content:'';position:absolute;inset-block-start:0;inset-inline:0;
+  height:3px;background:var(--ember);
+  transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.prog-card-btn:hover{border-color:rgba(194,90,42,.55);background:rgba(14,18,22,.94)}
+.prog-card-btn.active{border-color:var(--ember);background:rgba(194,90,42,.12)}
+.prog-card-btn.active::after{transform:scaleX(1)}
+.card-num{
+  font-family:var(--mono);font-size:4rem;font-weight:700;
+  color:var(--ember);line-height:1;letter-spacing:-.03em;
+  margin-bottom:18px;display:block;
+}
+.card-title{
+  font-family:var(--sans);font-size:clamp(.95rem,1.5vw,1.05rem);
+  font-weight:600;color:var(--bone);line-height:1.4;
+  flex-grow:1;display:block;margin-bottom:20px;
+}
+.card-hint{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:.76rem;
+  color:rgba(237,234,227,.36);letter-spacing:.14em;text-transform:uppercase;
+  padding-top:16px;border-top:1px solid rgba(237,234,227,.1);
+  transition:color .3s;
+}
+.card-hint svg{
+  width:12px;height:12px;stroke:var(--ember);fill:none;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round;
-  transition:stroke .3s,transform .3s var(--ease);
+  transition:transform .35s var(--ease);flex-shrink:0;
 }
-.prog-item.open>.prog-item-header .prog-item-icon{border-color:var(--ember)}
-.prog-item.open>.prog-item-header .prog-item-icon svg{stroke:var(--ember);transform:rotate(180deg)}
-.prog-item-body{display:none}
-.prog-item.open>.prog-item-body{display:block}
+.prog-card-btn.active .card-hint{color:rgba(237,234,227,.7)}
+.prog-card-btn.active .card-hint svg{transform:rotate(180deg)}
+
+/* ── Program panels (expand below cards) ── */
+.prog-panels{
+  position:relative;z-index:2;
+  border-top:2px solid var(--ember);
+  margin-top:14px;
+}
+.prog-panel-item{display:none}
+.prog-panel-item.active{display:block}
 
 /* ── Package panel content ── */
 .prog-panel-wrap{max-width:1200px;margin:0 auto;padding:60px 48px 96px}
@@ -421,11 +451,12 @@ footer{
   .pkg-two-col{grid-template-columns:1fr;gap:24px}
   .pkg-clarif{grid-template-columns:1fr}
   .about-grid{grid-template-columns:1fr;gap:48px}
-  .prog-item-header{padding:26px 36px}
   .foot{grid-template-columns:1fr 1fr;gap:32px}
   .pkg-header{padding:72px 32px 40px}
   .prog-panel-wrap{padding:40px 32px 72px}
-  .tab-title{font-size:1.05rem}
+  .prog-cards{grid-template-columns:1fr;padding:0 32px;gap:10px}
+  .card-num{font-size:3rem}
+  .card-title{font-size:1.05rem}
 }
 @media (max-width:640px){
   section,.final{padding:80px 24px}
@@ -441,9 +472,10 @@ footer{
   .photo-tall{aspect-ratio:4/3;grid-row:auto}
   .pkg-header{padding:60px 24px 32px}
   .prog-panel-wrap{padding:32px 24px 60px}
-  .prog-item-header{padding:22px 24px;min-height:72px}
-  .tab-num{font-size:.88rem}
-  .tab-title{font-size:1.05rem}
+  .prog-cards{padding:0 24px;gap:10px}
+  .card-num{font-size:2.8rem}
+  .card-title{font-size:1.02rem}
+  .prog-card-btn{padding:28px 22px 22px}
   .pkg-intro{font-size:1.06rem;padding:18px 20px}
   .pkg-col-list li{font-size:1.02rem}
   .pkg-clarif-q{font-size:.82rem}
@@ -461,9 +493,7 @@ footer{
   .hero-tag{font-size:.78rem}
   .hero-sub{font-size:1.08rem}
   .btn-ember{font-size:.88rem;padding:16px 26px}
-  .prog-item-header{padding:20px 20px;min-height:68px}
-  .tab-num{font-size:.86rem}
-  .tab-title{font-size:1rem}
+  .card-num{font-size:2.5rem}
   .pkg-col-list li{font-size:1rem}
   .pkg-clarif-cell{padding:18px 16px}
   .foot-col h4{font-size:.78rem}
@@ -529,212 +559,211 @@ footer{
     </div>
   </div>
 
-  <!-- Accordion -->
-  <div class="prog-accordion">
+  <!-- 3 clickable cards -->
+  <div class="prog-cards">
 
-    <!-- ── ITEM 01: GYM ── -->
-    <div class="prog-item" id="item-gym">
-      <button class="prog-item-header" onclick="toggleAccordion('item-gym')">
-        <div class="prog-item-header-left">
-          <span class="tab-num">01</span>
-          <span class="tab-title">תלמד אותי להתאמן בחדר כושר</span>
-        </div>
-        <span class="prog-item-icon">
-          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </span>
-      </button>
-      <div class="prog-item-body">
-        <div class="prog-panel-wrap">
-          <article class="pkg rv">
-            <div class="pkg-num">PACKAGE / 01<small>חדר כושר</small></div>
-            <div class="pkg-body">
-              <h2 class="pkg-title">תלמד אותי להתאמן<br><em>בחדר כושר.</em></h2>
-              <p class="pkg-intro">
-                רוצים להתאמן בעצמאות וביטחון בחדר כושר? לפתח שריר וכוח? לפתח התנגדות לאינסולין (כן אתם רוצים!) לשמר מסת שריר ועצם לשנים קדימה? להיות מסוגלים לזוז בנוחות ולהרים כל מה שצריך להרים? זו התוכנית בשבילכם (:
-              </p>
-              <div class="pkg-two-col">
-                <div>
-                  <span class="pkg-col-label">מה יועבר במפגשים?</span>
-                  <ul class="pkg-col-list">
-                    <li>לימוד עקרונות האימון</li>
-                    <li>מנחים נכונים</li>
-                    <li>התאמת התרגילים למטרות המתאמן</li>
-                    <li>התאמת התרגילים למגבלות המתאמן ומציאת תרגילים אלטרנטיבים</li>
-                    <li>תרגילים "מתקנים" למגבלות המתאמן מעולם הספורטתרפיה</li>
-                    <li>עבודה על שימור צפיפות עצם וכוח מתפרץ אשר "נאבדים" החל מגיל 35</li>
-                    <li>עבודת מוביליטי לבית או למשרד לשמירה על טווחים ולבריאות מפרקים ועמוד שדרה</li>
-                  </ul>
-                  <p class="pkg-note">הערות נוספות – אימון ראשון בבית המתאמן, אימונים נוספים בחדר כושר</p>
-                </div>
-                <div>
-                  <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
-                  <ul class="pkg-col-list">
-                    <li>ראייה שמטרתה לגרום לגוף שלכם לשרת אתכם שנים קדימה בהיבטים של טווח תנועה, פונקציונליות, ומניעת פציעות</li>
-                    <li>המלצות על תזונה תומכת ביצועי גוף ומוח</li>
-                    <li>ארסנל תרגילים למתן מענה למגבלות שונות</li>
-                    <li>זיהוי מגבלות אימון ומתן מענה עם תרגילים מתקנים מעולם הספורטתרפיה</li>
-                  </ul>
-                </div>
+    <button class="prog-card-btn" data-prog="panel-gym" onclick="selectProgram('panel-gym')">
+      <span class="card-num">01</span>
+      <span class="card-title">תלמד אותי להתאמן בחדר כושר</span>
+      <span class="card-hint">
+        לחצו לפרטים
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+    </button>
+
+    <button class="prog-card-btn" data-prog="panel-cardio" onclick="selectProgram('panel-cardio')">
+      <span class="card-num">02</span>
+      <span class="card-title">תאמן אותי לטובת יכולת אירובית ואנאירובית</span>
+      <span class="card-hint">
+        לחצו לפרטים
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+    </button>
+
+    <button class="prog-card-btn" data-prog="panel-home" onclick="selectProgram('panel-home')">
+      <span class="card-num">03</span>
+      <span class="card-title">תלמד אותי להתאמן ליד הבית עם ציוד מינימלי</span>
+      <span class="card-hint">
+        לחצו לפרטים
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+    </button>
+
+  </div><!-- /prog-cards -->
+
+  <!-- Content panels — expand below all 3 cards -->
+  <div class="prog-panels">
+
+    <!-- ── PANEL 01: GYM ── -->
+    <div id="panel-gym" class="prog-panel-item">
+      <div class="prog-panel-wrap">
+        <article class="pkg rv">
+          <div class="pkg-num">PACKAGE / 01<small>חדר כושר</small></div>
+          <div class="pkg-body">
+            <h2 class="pkg-title">תלמד אותי להתאמן<br><em>בחדר כושר.</em></h2>
+            <p class="pkg-intro">
+              רוצים להתאמן בעצמאות וביטחון בחדר כושר? לפתח שריר וכוח? לפתח התנגדות לאינסולין (כן אתם רוצים!) לשמר מסת שריר ועצם לשנים קדימה? להיות מסוגלים לזוז בנוחות ולהרים כל מה שצריך להרים? זו התוכנית בשבילכם (:
+            </p>
+            <div class="pkg-two-col">
+              <div>
+                <span class="pkg-col-label">מה יועבר במפגשים?</span>
+                <ul class="pkg-col-list">
+                  <li>לימוד עקרונות האימון</li>
+                  <li>מנחים נכונים</li>
+                  <li>התאמת התרגילים למטרות המתאמן</li>
+                  <li>התאמת התרגילים למגבלות המתאמן ומציאת תרגילים אלטרנטיבים</li>
+                  <li>תרגילים "מתקנים" למגבלות המתאמן מעולם הספורטתרפיה</li>
+                  <li>עבודה על שימור צפיפות עצם וכוח מתפרץ אשר "נאבדים" החל מגיל 35</li>
+                  <li>עבודת מוביליטי לבית או למשרד לשמירה על טווחים ולבריאות מפרקים ועמוד שדרה</li>
+                </ul>
+                <p class="pkg-note">הערות נוספות – אימון ראשון בבית המתאמן, אימונים נוספים בחדר כושר</p>
               </div>
-              <div class="pkg-clarif">
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
-                  <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. יתר המפגשים מבוצעים בחדר הכושר זינת׳ ברבל, התושיה 20 תל אביב.</p>
-                </div>
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
-                  <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
-                </div>
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">יש צורך בציוד נוסף?</span>
-                  <p class="pkg-clarif-a">לא.</p>
-                </div>
+              <div>
+                <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
+                <ul class="pkg-col-list">
+                  <li>ראייה שמטרתה לגרום לגוף שלכם לשרת אתכם שנים קדימה בהיבטים של טווח תנועה, פונקציונליות, ומניעת פציעות</li>
+                  <li>המלצות על תזונה תומכת ביצועי גוף ומוח</li>
+                  <li>ארסנל תרגילים למתן מענה למגבלות שונות</li>
+                  <li>זיהוי מגבלות אימון ומתן מענה עם תרגילים מתקנים מעולם הספורטתרפיה</li>
+                </ul>
               </div>
             </div>
-          </article>
-          <div class="video-showcase rv">
-            <video autoplay muted loop playsinline src="lunges.mp4"></video>
-            <div class="video-label">REAL TRAINING · LUNGES · FUNCTIONAL MOVEMENT</div>
-          </div>
-        </div>
-      </div>
-    </div><!-- /item-gym -->
-
-    <!-- ── ITEM 02: AEROBIC ── -->
-    <div class="prog-item" id="item-cardio">
-      <button class="prog-item-header" onclick="toggleAccordion('item-cardio')">
-        <div class="prog-item-header-left">
-          <span class="tab-num">02</span>
-          <span class="tab-title">תאמן אותי לטובת יכולת אירובית ואנאירובית</span>
-        </div>
-        <span class="prog-item-icon">
-          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </span>
-      </button>
-      <div class="prog-item-body">
-        <div class="prog-panel-wrap">
-          <article class="pkg">
-            <div class="pkg-num">PACKAGE / 02<small>אירובי</small></div>
-            <div class="pkg-body">
-              <h2 class="pkg-title">תאמן אותי לטובת יכולת<br><em>אירובית ואנאירובית.</em></h2>
-              <p class="pkg-intro">
-                רוצים לרוץ בקלילות? להיות חדי מחשבה? לשפר את המערכת הקרדיווסקולארית שלכם? לעשות טראק בטבע מבלי לנקוע קרסול? להיות עם מספיק סיבולת כדי לרקוד, לריב ולעשות אהבה? זו התוכנית בשבילכם (:
-              </p>
-              <div class="pkg-two-col">
-                <div>
-                  <span class="pkg-col-label">מה יועבר במפגשים?</span>
-                  <ul class="pkg-col-list">
-                    <li>תוכנית אימוני zone 2 cardio לחיזוק המערכת הקרדיווסקולרית (במסגרתה נציב מטרה ריאלית למרחק ריצה)</li>
-                    <li>אימוני אירובי לטובת חדות חשיבה ואריכות ימים</li>
-                    <li>אימוני התנגדות לחיזוק שרירים תומכי ריצה והליכה בשטח</li>
-                    <li>תרגול יציבות ומניעת פציעות ריצה</li>
-                    <li>חיזוק כף הרגל</li>
-                    <li>תרגול נשימות לטובת ריכוז וחיוניות</li>
-                    <li>תרגול חשיפה לקור לרענון מערכת הדופמין</li>
-                    <li>תרגול קואורדינציה ופרופריוספציה לשליטה בגוף</li>
-                  </ul>
-                </div>
-                <div>
-                  <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
-                  <ul class="pkg-col-list">
-                    <li>אני מגיע מרקע של אימוני כוח וגם מרקע של אירובי, ויודע לגבות את הריצה באימוני כוח הולמים.</li>
-                    <li>ההעמקה שלי בספורטתרפיה מאפשרת לי לזהות בעיות תנועה ולתת מענה הולם ולמנוע פציעות.</li>
-                    <li>בתור מישהו עם מבנה גוף די "כבד" אני יודע להתאים את תוכנית הריצה בהדרגה ולהימנע מבעיות כרוניות.</li>
-                    <li>ההעמקה שלי בתרגילי נשימה תתן לכם עוד כלי להתמודד עם קשיים באימונים וביום יום.</li>
-                    <li>כל אימון שאני עושה הוא מבוסס מחקר ובקצה – יש לו מטרה ברורה ומוגדרת היטב.</li>
-                  </ul>
-                </div>
+            <div class="pkg-clarif">
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
+                <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. יתר המפגשים מבוצעים בחדר הכושר זינת׳ ברבל, התושיה 20 תל אביב.</p>
               </div>
-              <div class="pkg-clarif">
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
-                  <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. יתר המפגשים מבוצעים בחדר הכושר זינת׳ ברבל, התושיה 20 תל אביב. (אם המיקום לא מתאים יבחנו מיקומים נוספים לפי צורך)</p>
-                </div>
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
-                  <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
-                </div>
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">יש צורך בציוד נוסף?</span>
-                  <p class="pkg-clarif-a">כן – שעון דופק. במידה ואין, ניתן למצוא פתרון.</p>
-                </div>
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
+                <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
+              </div>
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">יש צורך בציוד נוסף?</span>
+                <p class="pkg-clarif-a">לא.</p>
               </div>
             </div>
-          </article>
-          <div class="video-showcase">
-            <video autoplay muted loop playsinline src="gym.mp4"></video>
-            <div class="video-label">REAL TRAINING · AEROBIC · STRENGTH</div>
           </div>
+        </article>
+        <div class="video-showcase rv">
+          <video autoplay muted loop playsinline src="lunges.mp4"></video>
+          <div class="video-label">REAL TRAINING · LUNGES · FUNCTIONAL MOVEMENT</div>
         </div>
       </div>
-    </div><!-- /item-cardio -->
+    </div><!-- /panel-gym -->
 
-    <!-- ── ITEM 03: HOME ── -->
-    <div class="prog-item" id="item-home">
-      <button class="prog-item-header" onclick="toggleAccordion('item-home')">
-        <div class="prog-item-header-left">
-          <span class="tab-num">03</span>
-          <span class="tab-title">תלמד אותי להתאמן ליד הבית עם ציוד מינימלי</span>
-        </div>
-        <span class="prog-item-icon">
-          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </span>
-      </button>
-      <div class="prog-item-body">
-        <div class="prog-panel-wrap">
-          <article class="pkg">
-            <div class="pkg-num">PACKAGE / 03<small>ליד הבית</small></div>
-            <div class="pkg-body">
-              <h2 class="pkg-title">תלמד אותי להתאמן ליד הבית<br><em>עם ציוד מינימלי.</em></h2>
-              <p class="pkg-intro">
-                רוצים להתאמן קרוב לבית, גם כשחדר הכושר סגור? לפתח שריר וכוח ולשרוף שומן?<br>
-                האמת שאפשר להגיע די רחוק עם כמה אביזרים בודדים.
-              </p>
-              <div class="pkg-two-col">
-                <div>
-                  <span class="pkg-col-label">מה יועבר במפגשים?</span>
-                  <ul class="pkg-col-list">
-                    <li>מנחים נכונים לעבודה עם ובלי משקל</li>
-                    <li>מיומנויות קטלבל – כוח, אירובי, כוח מתפרץ, קואורדינציה</li>
-                    <li>תרגילי כוח במתקנים ציבוריים או ללא מתקנים בכלל</li>
-                    <li>כיצד לשלב אירובי באימוני כוח מבלי לרוץ</li>
-                    <li>עבודה על צפיפות עצם</li>
-                  </ul>
-                </div>
-                <div>
-                  <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
-                  <ul class="pkg-col-list">
-                    <li>מאמנים שמתרכזים בקליסטניקס ולא עובדים על אירובי / כוח מתפרץ / צפיפות עצם – חוטאים בכך שהמתאמנים שלהם מאבדים את היכולות האלה, למרות שהם עושים אימוני כוח.</li>
-                    <li>עבודה עם קטלבל משלבת אלמנטים רבים של כושר, אבל הקואורדינציה והתנועתיות שהיא מצריכה הופכת את הכלי הזה לכלי עם עומק שרוצים להתאמן איתו שנים קדימה.</li>
-                    <li>ההעמקה שלי בספורטתרפיה מאפשרת לי לזהות בעיות תנועה ולתת מענה הולם ולמנוע פציעות.</li>
-                  </ul>
-                </div>
+    <!-- ── PANEL 02: AEROBIC ── -->
+    <div id="panel-cardio" class="prog-panel-item">
+      <div class="prog-panel-wrap">
+        <article class="pkg">
+          <div class="pkg-num">PACKAGE / 02<small>אירובי</small></div>
+          <div class="pkg-body">
+            <h2 class="pkg-title">תאמן אותי לטובת יכולת<br><em>אירובית ואנאירובית.</em></h2>
+            <p class="pkg-intro">
+              רוצים לרוץ בקלילות? להיות חדי מחשבה? לשפר את המערכת הקרדיווסקולארית שלכם? לעשות טראק בטבע מבלי לנקוע קרסול? להיות עם מספיק סיבולת כדי לרקוד, לריב ולעשות אהבה? זו התוכנית בשבילכם (:
+            </p>
+            <div class="pkg-two-col">
+              <div>
+                <span class="pkg-col-label">מה יועבר במפגשים?</span>
+                <ul class="pkg-col-list">
+                  <li>תוכנית אימוני zone 2 cardio לחיזוק המערכת הקרדיווסקולרית (במסגרתה נציב מטרה ריאלית למרחק ריצה)</li>
+                  <li>אימוני אירובי לטובת חדות חשיבה ואריכות ימים</li>
+                  <li>אימוני התנגדות לחיזוק שרירים תומכי ריצה והליכה בשטח</li>
+                  <li>תרגול יציבות ומניעת פציעות ריצה</li>
+                  <li>חיזוק כף הרגל</li>
+                  <li>תרגול נשימות לטובת ריכוז וחיוניות</li>
+                  <li>תרגול חשיפה לקור לרענון מערכת הדופמין</li>
+                  <li>תרגול קואורדינציה ופרופריוספציה לשליטה בגוף</li>
+                </ul>
               </div>
-              <div class="pkg-clarif">
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
-                  <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. השני והלאה בפארק קרוב לבית.</p>
-                </div>
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
-                  <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
-                </div>
-                <div class="pkg-clarif-cell">
-                  <span class="pkg-clarif-q">האם יש צורך בציוד נוסף?</span>
-                  <p class="pkg-clarif-a">בתום חבילת האימונים, אעזור ברכישת הציוד הרלוונטי במחיר נמוך יחסית. טווח העלות הוא בין 250–400 ₪. (יש אפשרות להוזלה נוספת ע"י רכישת ציוד משומש ותקני).</p>
-                </div>
+              <div>
+                <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
+                <ul class="pkg-col-list">
+                  <li>אני מגיע מרקע של אימוני כוח וגם מרקע של אירובי, ויודע לגבות את הריצה באימוני כוח הולמים.</li>
+                  <li>ההעמקה שלי בספורטתרפיה מאפשרת לי לזהות בעיות תנועה ולתת מענה הולם ולמנוע פציעות.</li>
+                  <li>בתור מישהו עם מבנה גוף די "כבד" אני יודע להתאים את תוכנית הריצה בהדרגה ולהימנע מבעיות כרוניות.</li>
+                  <li>ההעמקה שלי בתרגילי נשימה תתן לכם עוד כלי להתמודד עם קשיים באימונים וביום יום.</li>
+                  <li>כל אימון שאני עושה הוא מבוסס מחקר ובקצה – יש לו מטרה ברורה ומוגדרת היטב.</li>
+                </ul>
               </div>
             </div>
-          </article>
-          <div class="video-showcase">
-            <video autoplay muted loop playsinline src="cossack.mp4"></video>
-            <div class="video-label">REAL TRAINING · COSSACK SQUAT · MOBILITY</div>
+            <div class="pkg-clarif">
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
+                <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. יתר המפגשים מבוצעים בחדר הכושר זינת׳ ברבל, התושיה 20 תל אביב. (אם המיקום לא מתאים יבחנו מיקומים נוספים לפי צורך)</p>
+              </div>
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
+                <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
+              </div>
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">יש צורך בציוד נוסף?</span>
+                <p class="pkg-clarif-a">כן – שעון דופק. במידה ואין, ניתן למצוא פתרון.</p>
+              </div>
+            </div>
           </div>
+        </article>
+        <div class="video-showcase">
+          <video autoplay muted loop playsinline src="gym.mp4"></video>
+          <div class="video-label">REAL TRAINING · AEROBIC · STRENGTH</div>
         </div>
       </div>
-    </div><!-- /item-home -->
+    </div><!-- /panel-cardio -->
 
-  </div><!-- /prog-accordion -->
+    <!-- ── PANEL 03: HOME ── -->
+    <div id="panel-home" class="prog-panel-item">
+      <div class="prog-panel-wrap">
+        <article class="pkg">
+          <div class="pkg-num">PACKAGE / 03<small>ליד הבית</small></div>
+          <div class="pkg-body">
+            <h2 class="pkg-title">תלמד אותי להתאמן ליד הבית<br><em>עם ציוד מינימלי.</em></h2>
+            <p class="pkg-intro">
+              רוצים להתאמן קרוב לבית, גם כשחדר הכושר סגור? לפתח שריר וכוח ולשרוף שומן?<br>
+              האמת שאפשר להגיע די רחוק עם כמה אביזרים בודדים.
+            </p>
+            <div class="pkg-two-col">
+              <div>
+                <span class="pkg-col-label">מה יועבר במפגשים?</span>
+                <ul class="pkg-col-list">
+                  <li>מנחים נכונים לעבודה עם ובלי משקל</li>
+                  <li>מיומנויות קטלבל – כוח, אירובי, כוח מתפרץ, קואורדינציה</li>
+                  <li>תרגילי כוח במתקנים ציבוריים או ללא מתקנים בכלל</li>
+                  <li>כיצד לשלב אירובי באימוני כוח מבלי לרוץ</li>
+                  <li>עבודה על צפיפות עצם</li>
+                </ul>
+              </div>
+              <div>
+                <span class="pkg-col-label">מה היתרונות שלי על פני המאמן הסטנדרטי?</span>
+                <ul class="pkg-col-list">
+                  <li>מאמנים שמתרכזים בקליסטניקס ולא עובדים על אירובי / כוח מתפרץ / צפיפות עצם – חוטאים בכך שהמתאמנים שלהם מאבדים את היכולות האלה, למרות שהם עושים אימוני כוח.</li>
+                  <li>עבודה עם קטלבל משלבת אלמנטים רבים של כושר, אבל הקואורדינציה והתנועתיות שהיא מצריכה הופכת את הכלי הזה לכלי עם עומק שרוצים להתאמן איתו שנים קדימה.</li>
+                  <li>ההעמקה שלי בספורטתרפיה מאפשרת לי לזהות בעיות תנועה ולתת מענה הולם ולמנוע פציעות.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="pkg-clarif">
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">היכן מתקיימים המפגשים?</span>
+                <p class="pkg-clarif-a">המפגש הראשון יכול להיות בבית המתאמנ/ת. השני והלאה בפארק קרוב לבית.</p>
+              </div>
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">מה קורה אחרי שהחבילה מסתיימת?</span>
+                <p class="pkg-clarif-a">המתאמנ/ת מקבל/ת תוכנית עבודה מסודרת קדימה עם קו פתוח להתייעצויות.</p>
+              </div>
+              <div class="pkg-clarif-cell">
+                <span class="pkg-clarif-q">האם יש צורך בציוד נוסף?</span>
+                <p class="pkg-clarif-a">בתום חבילת האימונים, אעזור ברכישת הציוד הרלוונטי במחיר נמוך יחסית. טווח העלות הוא בין 250–400 ₪. (יש אפשרות להוזלה נוספת ע"י רכישת ציוד משומש ותקני).</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class="video-showcase">
+          <video autoplay muted loop playsinline src="cossack.mp4"></video>
+          <div class="video-label">REAL TRAINING · COSSACK SQUAT · MOBILITY</div>
+        </div>
+      </div>
+    </div><!-- /panel-home -->
+
+  </div><!-- /prog-panels -->
 
 </section>
 
@@ -819,16 +848,20 @@ footer{
 </footer>
 
 <script>
-function toggleAccordion(id) {
-  const item = document.getElementById(id);
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.prog-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) {
-    item.classList.add('open');
-    item.querySelectorAll('.rv').forEach(el => {
+function selectProgram(id) {
+  const btn = document.querySelector('[data-prog="' + id + '"]');
+  const panel = document.getElementById(id);
+  const isActive = btn.classList.contains('active');
+  document.querySelectorAll('.prog-card-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.prog-panel-item').forEach(p => p.classList.remove('active'));
+  if (!isActive) {
+    btn.classList.add('active');
+    panel.classList.add('active');
+    panel.querySelectorAll('.rv').forEach(el => {
       el.classList.remove('in'); void el.offsetWidth; el.classList.add('in');
     });
-    item.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
+    panel.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 }
 
