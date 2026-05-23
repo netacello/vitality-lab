@@ -243,12 +243,11 @@ h2 .strong{font-weight:700}
 .prog-card-btn.active .card-hint svg{transform:rotate(180deg)}
 
 /* ── Program panels (expand below cards) ── */
-.prog-panels{
-  position:relative;z-index:2;
+.prog-panel-item{
+  display:none;
+  grid-column:1/-1;
   border-top:2px solid var(--ember);
-  margin-top:14px;
 }
-.prog-panel-item{display:none}
 .prog-panel-item.active{display:block}
 
 /* ── Package panel content ── */
@@ -456,7 +455,13 @@ footer{
   .foot{grid-template-columns:1fr 1fr;gap:32px}
   .pkg-header{padding:72px 32px 40px}
   .prog-panel-wrap{padding:40px 32px 72px}
-  .prog-cards{grid-template-columns:1fr;padding:0 32px;gap:10px}
+  .prog-cards{display:flex;flex-direction:column;padding:0 32px;gap:10px}
+  .prog-cards .prog-card-btn[data-prog="panel-gym"]{order:1}
+  .prog-cards #panel-gym{order:2}
+  .prog-cards .prog-card-btn[data-prog="panel-cardio"]{order:3}
+  .prog-cards #panel-cardio{order:4}
+  .prog-cards .prog-card-btn[data-prog="panel-home"]{order:5}
+  .prog-cards #panel-home{order:6}
   .card-num{font-size:3rem}
   .card-title{font-size:1.05rem}
 }
@@ -591,10 +596,6 @@ footer{
       </span>
     </button>
 
-  </div><!-- /prog-cards -->
-
-  <!-- Content panels — expand below all 3 cards -->
-  <div class="prog-panels">
 
     <!-- ── PANEL 01: GYM ── -->
     <div id="panel-gym" class="prog-panel-item">
@@ -765,7 +766,7 @@ footer{
       </div>
     </div><!-- /panel-home -->
 
-  </div><!-- /prog-panels -->
+  </div><!-- /prog-cards -->
 
 </section>
 
@@ -861,7 +862,7 @@ function selectProgram(id) {
       el.classList.remove('in'); void el.offsetWidth; el.classList.add('in');
     });
     panel.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
