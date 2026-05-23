@@ -335,11 +335,11 @@ h2 .strong{font-weight:700}
 .about-photos{
   display:grid;grid-template-columns:1fr 1fr;gap:8px;
 }
-.about-photos img{
+.about-photos img,.about-photos video{
   width:100%;object-fit:cover;display:block;
   transition:transform .5s var(--ease);
 }
-.about-photos img:hover{transform:scale(1.02)}
+.about-photos img:hover,.about-photos video:hover{transform:scale(1.02)}
 .photo-tall{grid-row:span 2;aspect-ratio:2/3;object-position:top}
 .photo-sq{aspect-ratio:1}
 .about-text p{font-size:1rem;color:var(--basalt);line-height:1.85;margin-bottom:18px}
@@ -777,9 +777,11 @@ footer{
     <h2 class="rv">A coach who <em>walks the talk.</em></h2>
     <div class="about-grid">
       <div class="about-photos rv">
-        <img src="yaniv2.jpeg" class="photo-tall" alt="יניב">
-        <img src="yaniv-gym.jpeg" class="photo-sq" alt="יניב בחדר כושר">
-        <img src="pool.jpeg" class="photo-sq" alt="נחל המשושים">
+        <video class="photo-tall" autoplay muted loop playsinline src="%D7%95%D7%99%D7%93%D7%90%D7%95%20%D7%98%D7%91%D7%99%D7%9C%D7%94%20%D7%A9%D7%9C%D7%92.mp4"></video>
+        <img src="%D7%98%D7%91%D7%99%D7%9C%D7%94%20%D7%A7%D7%95%D7%A8.jpeg" class="photo-sq" alt="טבילה בקור">
+        <img src="%D7%A2%D7%9E%D7%99%D7%93%D7%94%20%D7%A9%D7%9C%D7%92.jpeg" class="photo-sq" alt="עמידה בשלג">
+        <video class="photo-sq" autoplay muted loop playsinline src="%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94.mp4"></video>
+        <video class="photo-sq" autoplay muted loop playsinline src="%D7%91%D7%95%D7%9C%D7%92%D7%A8%D7%99%D7%94%20%D7%A9%D7%9E%D7%A9.mp4"></video>
       </div>
       <div class="about-text">
         <p class="rv">המסע של יניב לא התחיל ונגמר בין הקירות של חדר הכושר. הוא מגיע מעולם הסטארטאפ, שם הוא למד על בשרו מה זה ישיבות אינסופיות, סטרס, ולשכוח לשתות מים. משם הגיעה ההבנה: מה שבונה חוסן אנושי אמיתי זה לא דיאטה טרנדית. זה הרגלים בריאים, מסת שריר, לב חזק, שינה, ונשימה.</p>
