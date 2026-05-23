@@ -853,6 +853,7 @@ function selectProgram(id) {
   const btn = document.querySelector('[data-prog="' + id + '"]');
   const panel = document.getElementById(id);
   const isActive = btn.classList.contains('active');
+  const wasSwitching = !!document.querySelector('.prog-card-btn.active') && !isActive;
   document.querySelectorAll('.prog-card-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.prog-panel-item').forEach(p => p.classList.remove('active'));
   if (!isActive) {
@@ -862,7 +863,9 @@ function selectProgram(id) {
       el.classList.remove('in'); void el.offsetWidth; el.classList.add('in');
     });
     panel.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
-    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (wasSwitching) {
+      btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
 
