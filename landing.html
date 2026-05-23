@@ -864,7 +864,8 @@ function selectProgram(id) {
     });
     panel.querySelectorAll('video').forEach(v => v.play().catch(()=>{}));
     if (wasSwitching) {
-      btn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const top = btn.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
     }
   }
 }
