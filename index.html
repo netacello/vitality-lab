@@ -459,15 +459,11 @@ footer{
   .foot{grid-template-columns:1fr 1fr;gap:32px}
   .pkg-header{padding:72px 32px 40px}
   .prog-panel-wrap{padding:40px 32px 72px}
-  .prog-cards{display:flex;flex-direction:column;padding:0 32px 72px;gap:10px}
-  .prog-cards .prog-card-btn[data-prog="panel-gym"]{order:1}
-  .prog-cards #panel-gym{order:2}
-  .prog-cards .prog-card-btn[data-prog="panel-cardio"]{order:3}
-  .prog-cards #panel-cardio{order:4}
-  .prog-cards .prog-card-btn[data-prog="panel-home"]{order:5}
-  .prog-cards #panel-home{order:6}
-  .card-num{font-size:3rem}
-  .card-title{font-size:1.05rem}
+  .prog-cards{display:grid;grid-template-columns:1fr 1fr;padding:0 24px 60px;gap:8px}
+  .prog-cards .prog-card-btn[data-prog="panel-gym"]{grid-column:1/3}
+  .card-num{font-size:2.4rem}
+  .card-title{font-size:.9rem}
+  .prog-card-btn{padding:22px 16px 16px}
 }
 @media (max-width:640px){
   section,.final{padding:80px 24px}
@@ -483,9 +479,10 @@ footer{
   .pkg-header{padding:60px 24px 32px}
   .prog-panel-wrap{padding:32px 24px 60px}
   .prog-cards{padding:0 24px;gap:10px}
-  .card-num{font-size:2.8rem}
-  .card-title{font-size:1.02rem}
-  .prog-card-btn{padding:28px 22px 22px}
+  .card-num{font-size:2rem}
+  .card-title{font-size:.82rem}
+  .prog-card-btn{padding:16px 12px 14px}
+  .card-hint{font-size:.72rem}
   .pkg-intro{font-size:1.06rem;padding:18px 20px}
   .pkg-col-list li{font-size:1.02rem}
   .pkg-clarif-q{font-size:1.1rem}
@@ -503,7 +500,7 @@ footer{
   .hero-tag{font-size:.78rem}
   .hero-sub{font-size:1.08rem}
   .btn-ember{font-size:.88rem;padding:16px 26px}
-  .card-num{font-size:2.5rem}
+  .card-num{font-size:1.8rem}
   .pkg-col-list li{font-size:1rem}
   .pkg-clarif-cell{padding:18px 16px}
   .foot-col h4{font-size:.78rem}
@@ -579,7 +576,7 @@ footer{
 
     <button class="prog-card-btn" data-prog="panel-cardio" onclick="selectProgram('panel-cardio')">
       <span class="card-num">02</span>
-      <span class="card-title">תאמן אותי לטובת יכולת אירובית ואנאירובית</span>
+      <span class="card-title">תלמד אותי לרוץ, לנשום ולזוז בקלות</span>
       <span class="card-hint">
         לחצו לפרטים
         <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -655,7 +652,7 @@ footer{
         <article class="pkg">
           <div class="pkg-num">PACKAGE / 02<small>אירובי</small></div>
           <div class="pkg-body">
-            <h2 class="pkg-title">תאמן אותי לטובת יכולת<br><em>אירובית ואנאירובית.</em></h2>
+            <h2 class="pkg-title">תלמד אותי לרוץ, לנשום<br><em>ולזוז בקלות.</em></h2>
             <p class="pkg-intro">
               רוצים לרוץ בקלילות? להיות חדי מחשבה? לשפר את המערכת הקרדיווסקולארית שלכם? לעשות טראק בטבע מבלי לנקוע קרסול? להיות עם מספיק סיבולת כדי לרקוד, לריב ולעשות אהבה? זו התוכנית בשבילכם (:
             </p>
@@ -764,12 +761,12 @@ footer{
     <div class="about-stream">
 
       <video class="about-vid-portrait rv" autoplay muted loop playsinline src="lunges.mp4" style="aspect-ratio:4/5;object-position:center"></video>
-      <p class="about-p rv">במקום להסתמך על מיתוסים ישנים, הוא דואג להיות תמיד בחזית המדע ומקפיד להתעדכן בכל מאמר ומחקר חדש שיוצא. את הידע הזה הוא לוקח איתו אל הקצה:</p>
+      <p class="about-p rv">תמיד בחזית המדע, לוקח את הידע אל הקצה.</p>
 
-      <p class="about-p rv">מחשיפה קבועה לקור וטבילות שבועיות בטבע, ועד לטרקים בשטח בארץ ובחו"ל (ורצוי כמה שיותר גבוה, בשלג). חוץ מזה, יש לו גם חוש הומור מעולה. וזה, כידוע, חלק בלתי נפרד מחוסן אמיתי.</p>
+      <p class="about-p rv">טובל בים כל שישי, מטייל בשלג – ויש לו גם חוש הומור מעולה.</p>
 
       <video class="about-vid-portrait rv" autoplay muted loop playsinline src="%D7%A7%D7%98%D7%9C%D7%91%D7%9C%20%D7%97%D7%A8%D7%9E%D7%95%D7%9F.mp4" style="aspect-ratio:4/5;object-position:center"></video>
-      <p class="about-p rv">המסע של יניב לא התחיל ונגמר בין הקירות של חדר הכושר. הוא מגיע מעולם הסטארטאפ, שם הוא למד על בשרו מה זה ישיבות אינסופיות, סטרס, ולשכוח לשתות מים. משם הגיעה ההבנה: מה שבונה חוסן אנושי אמיתי זה לא דיאטה טרנדית. זה הרגלים בריאים, מסת שריר, לב חזק, שינה, ונשימה.</p>
+      <p class="about-p rv">מגיע מעולם הסטארטאפ ויודע: לא דיאטות – שריר, לב חזק, שינה ונשימה.</p>
 
       <ul class="creds-list rv">
         <li>מדריך כושר מוסמך בוינגייט</li>
